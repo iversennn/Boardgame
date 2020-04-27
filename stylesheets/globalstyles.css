@@ -1,0 +1,102 @@
+/*<><><><> Global Layout <><><><><><><><><><><><><><><><><><><><>*/
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 1px solid red;
+    outline-offset: -1px;
+}
+
+body{
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*<><><><> Global Styling <><><><><><><><><><><><><><><><><><><><>*/
+html{
+    background-color: rgb(109, 221, 255);
+    background-image: url("../media/background/background_main2560x1440.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-position: bottom;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*---------- Header ----------------------------------------------------*/
+
+header{
+    position: relative;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.logoBox{
+    margin: 0 auto;
+    width: 800px;
+    height: 150px;
+    background-image: url("../media/logo-02.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}
+
+.decorBorder{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background: yellow;
+}
+
+/*---------- Main ------------------------------------------------------*/
+
+.playContainer{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    border-radius: 50%;
+}
+
+.playContainer:hover{
+    width: 600px;
+    height: 600px;
+    margin-top: 0px;
+    transition-duration: 0.5s;
+    background-color: rgb(255, 185, 73, 0.5);
+    box-shadow: 0px 0px 50px 50px rgb(255, 185, 73, 0.5);
+    cursor: pointer;
+}
+
+.playContainerBackground{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    margin-top: 50px;
+    background-image: url("../media/buttons/playButton2.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}
+
+.playContainerBackground:hover{
+    width: 600px;
+    height: 600px;
+    margin-top: 0px;
+    transition-duration: 0.5s;
+}
+
+
+
+/*---------- Footer ----------------------------------------------------*/

@@ -1,0 +1,20 @@
+/*---------- Header ----------------------------------------------------*/
+
+.logoBox{
+    background-image: url("../media/logo-01.svg");
+    height: 70px;
+    width: 400px;
+}
+
+main{
+    margin: 0 auto;
+    height: 800px;
+    width: 1400px;
+    background-image: url("../media/background/boardmap1400x800.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}

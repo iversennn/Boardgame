@@ -6,11 +6,9 @@
     width: 400px;
 }
 
-main{
-    margin: 0 auto;
-    height: 800px;
-    width: 1400px;
-    background-image: url("../media/background/boardmap1400x800.svg");
+canvas{
+    margin: 50px auto;
+    background-image: url("../media/background/boardmap1400x800complete.png");
     background-repeat: no-repeat;
 	background-position: center;
     -webkit-background-size: cover;

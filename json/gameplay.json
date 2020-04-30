@@ -1,0 +1,144 @@
+{
+    "coordinates":{
+        "tile1player1":{
+            "x": "250",
+            "y": "202"
+        },
+        "tile1player2":{
+            "x": "360",
+            "y": "202"
+        },
+        "tile2":{
+            "x": "523",
+            "y": "172"
+        },
+        "tile3":{
+            "x": "619",
+            "y": "161"
+        },
+        "tile4":{
+            "x": "708",
+            "y": "208"
+        },
+        "tile5":{
+            "x": "683",
+            "y": "283"
+        },
+        "tile6":{
+            "x": "560",
+            "y": "326"
+        },
+        "tile7":{
+            "x": "422",
+            "y": "381"
+        },
+        "tile8":{
+            "x": "475",
+            "y": "458"
+        },
+        "tile9":{
+            "x": "600",
+            "y": "468"
+        },
+        "tile10":{
+            "x": "722",
+            "y": "441"
+        },
+        "tile11":{
+            "x": "832",
+            "y": "464"
+        },
+        "tile12":{
+            "x": "952",
+            "y": "424"
+        },
+        "tile13":{
+            "x": "1039",
+            "y": "351"
+        },
+        "tile14":{
+            "x": "1010",
+            "y": "261"
+        },
+        "tile15":{
+            "x": "990",
+            "y": "171"
+        },
+        "tile16":{
+            "x": "1112",
+            "y": "139"
+        },
+        "tile17":{
+            "x": "1224",
+            "y": "189"
+        },
+        "tile18":{
+            "x": "1247",
+            "y": "264"
+        },
+        "tile19":{
+            "x": "1244",
+            "y": "346"
+        },
+        "tile20":{
+            "x": "1222",
+            "y": "436"
+        },
+        "tile21":{
+            "x": "1206",
+            "y": "513"
+        },
+        "tile22":{
+            "x": "1184",
+            "y": "593"
+        },
+        "tile23":{
+            "x": "1104",
+            "y": "648"
+        },
+        "tile24":{
+            "x": "1001",
+            "y": "606"
+        },
+        "tile25":{
+            "x": "909",
+            "y": "561"
+        },
+        "tile26":{
+            "x": "802",
+            "y": "598"
+        },
+        "tile27":{
+            "x": "697",
+            "y": "643"
+        },
+        "tile28":{
+            "x": "582",
+            "y": "646"
+        },
+        "tile29":{
+            "x": "466",
+            "y": "633"
+        },
+        "tile30":{
+            "x": "236",
+            "y": "609"
+        }
+    },
+    "characters":{
+        "player1" : {
+            "name" : ["happy", "Pappy", "Kappy", "Mappy"],
+            "url" : ["./media/character/character-01.svg",
+                    "./media/character/character-02.svg",
+                    "./media/character/character-03.svg",
+                    "./media/character/character-04.svg"]
+        },
+        "player2" : {
+            "name" : ["Lappy", "Sappy", "Fappy", "Nappy"],
+            "url" : ["./media/character/character-05.svg",
+                    "./media/character/character-06.svg",
+                    "./media/character/character-07.svg",
+                    "./media/character/character-08.svg"]
+        }
+    }
+}

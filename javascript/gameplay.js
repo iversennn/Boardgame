@@ -23,6 +23,29 @@ fetch("./json/gameplay.json")
     gameMusic();
     diceSoundForGamePlay();
 
+//------------------------------------------------ Test Area ---------------------------------------------------------
+/*var testImage = new Image();
+testImage.src = jsonResult.characters.player1.url[0];
+
+var xx = jsonResult.coordinatesArrayX[0]-90;
+var yy = jsonResult.coordinatesArrayY[0]-100;
+
+var xxEnd = jsonResult.coordinatesArrayX[2]-90;
+var yyEnd = jsonResult.coordinatesArrayY[2]-100;
+
+    setInterval(function() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      if (xx < xxEnd) {
+        ctx.drawImage(testImage,xx,yy,150,150);
+        xx++;
+        yy++;
+      } else {
+        xx = jsonResult.coordinatesArrayX[0]-90;
+        yy = jsonResult.coordinatesArrayY[0]-100;
+      }
+    }, 6);*/
+
+
 //------------------------------------------------ Draw Players ------------------------------------------------------
 
     function drawPlayerOne(){
@@ -64,7 +87,7 @@ fetch("./json/gameplay.json")
     function movePlayerOne(){
       var playerOnePlacement = Number(localStorage.p1);
 
-      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+      //ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterOneImage = new Image();
       characterOneImage.src = jsonResult.characters.player1.url[0];
@@ -73,19 +96,19 @@ fetch("./json/gameplay.json")
 
       showPlayerTwo();
       ifPlayerOneWin();
-      playerOneAnotherTurn();
       p1TrapTile6();
       p1LuckyTile12();
       p1LuckyTile16();
       p1TrapTile25();
       p1TrapTile28();
+      playerOneAnotherTurn();
       };
     };
 
     function movePlayerTwo(){
       var playerTwoPlacement = Number(localStorage.p2);
 
-      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+      //ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterTwoImage = new Image();
       characterTwoImage.src = jsonResult.characters.player2.url[0];
@@ -94,12 +117,12 @@ fetch("./json/gameplay.json")
       
       showPlayerOne();
       ifPlayerTwoWin();
-      playerTwoAnotherTurn();
       p2TrapTile6();
       p2LuckyTile12();
       p2LuckyTile16();
       p2TrapTile25();
       p2TrapTile28();
+      playerTwoAnotherTurn();
       };
     };
     
@@ -497,4 +520,3 @@ fetch("./json/gameplay.json")
 
   })
 });
-

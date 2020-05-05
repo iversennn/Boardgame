@@ -14,6 +14,22 @@ fetch("./json/gameplay.json")
     localStorage.setItem('diceRollOne','0');
     localStorage.setItem('diceRollTwo','0');
 
+    gameMusic();
+
+    var muteMusic = document.querySelector("#mute");
+    muteMusic.addEventListener('click', function(){
+      muteMusic.style.display = 'none';
+      playMusic.style.display = 'block';
+      gameMusicPause();
+    });
+
+    var playMusic = document.querySelector("#play");
+    playMusic.addEventListener('click', function(){
+      playMusic.style.display = 'none';
+      muteMusic.style.display = 'block';
+      gameMusic();
+    });
+
 //------------------------------------------------ Draw Players ------------------------------------------------------
 
     function drawPlayerOne(){

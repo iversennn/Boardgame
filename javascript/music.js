@@ -1,6 +1,9 @@
+var audio = new Audio('./media/music/tavern.mp3');
+
 function gameMusic(){
-    var audio = new Audio('./media/music/tavern.mp3');
     audio.play();
 }
 
-gameMusic();
+function gameMusicPause(){
+    audio.pause();
+};

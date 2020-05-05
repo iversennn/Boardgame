@@ -21,7 +21,7 @@ fetch("./json/gameplay.json")
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[0]-90,y[0]-100,150,150);
       };
-    }
+    };
     drawPlayerOne();
 
     function drawPlayerTwo(){
@@ -30,22 +30,38 @@ fetch("./json/gameplay.json")
       characterTwoImage.onload = function() {
       ctx.drawImage(characterTwoImage,x[1]-90,y[1]-100,150,150);
       };
-    }
+    };
     drawPlayerTwo();
+
+    function showPlayerOne(){
+      var characterOneImage = new Image();
+      characterOneImage.src = jsonResult.characters.player1.url[0];
+      characterOneImage.onload = function() {
+      ctx.drawImage(characterOneImage,x[1+Number(localStorage.p1)]-90,y[1+Number(localStorage.p1)]-100,150,150);
+      };
+    };
+
+    function showPlayerTwo(){
+      var characterTwoImage = new Image();
+      characterTwoImage.src = jsonResult.characters.player2.url[0];
+      characterTwoImage.onload = function() {
+      ctx.drawImage(characterTwoImage,x[1+Number(localStorage.p2)]-90,y[1+Number(localStorage.p2)]-100,150,150);
+      };
+    };
 
 //------------------------------------------------ Move Players ------------------------------------------------------
 
     function movePlayerOne(){
-      playerOnePlacement = Number(localStorage.p1);
+      var playerOnePlacement = Number(localStorage.p1);
 
       ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
-      ctx.clearRect(x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);
 
       var characterOneImage = new Image();
       characterOneImage.src = jsonResult.characters.player1.url[0];
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);
 
+      showPlayerTwo();
       p1TrapTile6();
       p1LuckyTile12();
       p1LuckyTile16();
@@ -56,15 +72,16 @@ fetch("./json/gameplay.json")
     };
 
     function movePlayerTwo(){
-      playerTwoPlacement = Number(localStorage.p2);
+      var playerTwoPlacement = Number(localStorage.p2);
 
-      //ctx.clearRect(x[0+playerTwoPlacement]-90,y[0+playerTwoPlacement]-100,150,150);
+      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterTwoImage = new Image();
       characterTwoImage.src = jsonResult.characters.player2.url[0];
       characterTwoImage.onload = function() {
       ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-90,y[0+1+playerTwoPlacement]-100,150,150);
       
+      showPlayerOne();
       p2TrapTile6();
       p2LuckyTile12();
       p2LuckyTile16();

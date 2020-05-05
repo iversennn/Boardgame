@@ -5,13 +5,14 @@ fetch("./json/gameplay.json")
     boardCanvas.width = 1450;
     boardCanvas.height = 800;
     var ctx = boardCanvas.getContext("2d");
-
-    console.log(jsonResult);
+    //console.log(jsonResult);
 
     var x = jsonResult.coordinatesArrayX;
     var y = jsonResult.coordinatesArrayY;
     localStorage.setItem('p1','0');
     localStorage.setItem('p2','0');
+    localStorage.setItem('diceRollOne','0');
+    localStorage.setItem('diceRollTwo','0');
 
 //------------------------------------------------ Draw Players ------------------------------------------------------
 
@@ -62,12 +63,12 @@ fetch("./json/gameplay.json")
       ctx.drawImage(characterOneImage,x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);
 
       showPlayerTwo();
+      ifPlayerOneWin();
+      playerOneAnotherTurn();
       p1TrapTile6();
       p1LuckyTile12();
       p1LuckyTile16();
       p1TrapTile25();
-      ifPlayerOneWin();
-
       };
     };
 
@@ -82,12 +83,12 @@ fetch("./json/gameplay.json")
       ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-90,y[0+1+playerTwoPlacement]-100,150,150);
       
       showPlayerOne();
+      ifPlayerTwoWin();
+      playerTwoAnotherTurn();
       p2TrapTile6();
       p2LuckyTile12();
       p2LuckyTile16();
       p2TrapTile25();
-      ifPlayerTwoWin();
-
       };
     };
     
@@ -95,27 +96,156 @@ fetch("./json/gameplay.json")
 //------------------------------------------------ Dice Roll ------------------------------------------------------
 
     function diceRollOne(){
+      
       var myDice = document.querySelector("#diceOne");
-      sides = 6;
-      random = Math.floor(Math.random() * this.sides) + 1;
-      myDice.innerHTML = '<h1>' + random;
+        sides = 6;
+        random = Math.floor(Math.random() * this.sides) + 1;
 
-      localStorage.p1 = Number(localStorage.p1)+random;
+      function showRollOne(){
+        myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + random;
+        localStorage.setItem('diceRollOne',random);
 
-      movePlayerOne(random);
-      hideDice();
-    }
+        localStorage.p1 = Number(localStorage.p1)+random;
+        myDice.style.pointerEvents = 'auto';
+
+        movePlayerOne(random);
+        hideDice();
+      };
+
+      function one() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '2';
+            showRollOne();
+        }, 300)
+      }
+
+      function two() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            one();
+        }, 300)
+      }
+
+      function three() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            two();
+        }, 300)
+      }
+
+      function four() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            three();
+        }, 300)
+      }
+
+      function five() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            four();
+        }, 300)
+      }
+
+      function six() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '1';
+            five();
+        }, 300)
+      }
+
+      function seven() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            six();
+        }, 300)
+      }
+
+      function eight() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            seven();
+        }, 300)
+      }
+
+        eight();
+        myDice.style.pointerEvents = 'none';
+      };
 
     function diceRollTwo(){
       var myDice = document.querySelector("#diceTwo");
       sides = 6;
       random = Math.floor(Math.random() * this.sides) + 1;
-      myDice.innerHTML = '<h1>' + random;
+      
+      function showRollTwo(){
+        myDice.innerHTML = '<p>' + 'Player 2' + '<h1>' + random;
+        localStorage.setItem('diceRollTwo',random);
 
-      localStorage.p2 = Number(localStorage.p2)+random;
+        localStorage.p2 = Number(localStorage.p2)+random;
+        myDice.style.pointerEvents = 'auto';
 
-      movePlayerTwo(random);
-      hideDice();
+        movePlayerTwo(random);
+        hideDice();
+      }
+
+      function one() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '2';
+            showRollTwo();
+        }, 300)
+      }
+
+      function two() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            one();
+        }, 300)
+      }
+
+      function three() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            two();
+        }, 300)
+      }
+
+      function four() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            three();
+        }, 300)
+      }
+
+      function five() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            four();
+        }, 300)
+      }
+
+      function six() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            five();
+        }, 300)
+      }
+
+      function seven() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '1';
+            six();
+        }, 300)
+      }
+
+      function eight() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            seven();
+        }, 300)
+      }
+
+        eight();
+        myDice.style.pointerEvents = 'none';
     }
 
     
@@ -128,6 +258,37 @@ fetch("./json/gameplay.json")
     diceTwo.addEventListener('click', function(){
       diceRollTwo();
     });
+
+//------------------------------------------------ If dice Roll = 6 ------------------------------------------------------
+
+    function playerOneAnotherTurn(){
+      var myDiceOne = document.querySelector('#diceOne');
+      var myDiceTwo = document.querySelector('#diceTwo');
+
+      if (localStorage.diceRollOne == 6){
+        alert('Player one rolled a 6 and gets another turn!')
+        myDiceOne.style.pointerEvents = 'auto';
+        myDiceTwo.style.pointerEvents = 'none';
+        
+        myDiceOne.classList.add('diceShadow');
+        myDiceTwo.classList.remove('diceShadow');
+      }
+    }
+
+    function playerTwoAnotherTurn(){
+      var myDiceOne = document.querySelector('#diceOne');
+      var myDiceTwo = document.querySelector('#diceTwo');
+
+      if (localStorage.diceRollTwo == 6){
+        alert('Player two rolled a 6 and gets another turn!')
+        myDiceOne.style.pointerEvents = 'none';
+        myDiceTwo.style.pointerEvents = 'auto';
+
+        myDiceOne.classList.remove('diceShadow');
+        myDiceTwo.classList.add('diceShadow');
+      }
+    }
+
 
 //------------------------------------------------ Traps/Lucky ---------------------------------------------------------
 
@@ -245,24 +406,9 @@ fetch("./json/gameplay.json")
 
 //------------------------------------------------ Switch turn ---------------------------------------------------------
 
-    /*function hideDice(){
-      var myDiceOne = document.querySelector('#diceOne');
-      var myDiceTwo = document.querySelector('#diceTwo');
-      
-      if (myDiceOne.style.display === 'block'){
-        myDiceOne.style.display = 'none'
-        myDiceTwo.style.display = 'block'
-      } else if (myDiceTwo.style.display === 'block'){
-        myDiceOne.style.display = 'block'
-        myDiceTwo.style.display = 'none'
-      }
-    };*/
-
     function hideDice(){
       var myDiceOne = document.querySelector('#diceOne');
       var myDiceTwo = document.querySelector('#diceTwo');
-
-      console.log(myDiceOne.style);
       
       if (myDiceOne.style.pointerEvents === 'auto'){
         myDiceOne.style.pointerEvents = 'none';

@@ -29,6 +29,16 @@ canvas{
     padding-top: 5px;
 }
 
+.diceOne p{
+    padding: 0;
+    margin: 7px;
+}
+
+.diceOne h1{
+    padding: 0;
+    margin: 0;
+}
+
 .diceTwo{
     position: fixed;
     width: 100px;
@@ -41,6 +51,23 @@ canvas{
     padding-top: 5px;
 }
 
+.diceTwo p{
+    padding: 0;
+    margin: 7px;
+}
+
+.diceTwo h1{
+    padding: 0;
+    margin: 0;
+}
+
 .diceShadow{
-    box-shadow: 0px 0px 10px 20px rgb(255, 255, 255,1);
+    box-shadow: 0px 0px 10px 20px rgb(255, 208, 0);
+    animation:blinkingText 2s infinite;
+}
+
+@keyframes blinkingText{
+    0%{     color: rgb(255, 208, 0);    }
+    50%{    color: transparent; }
+    100%{   color: rgb(255, 208, 0);    }
 }

@@ -14,7 +14,14 @@ fetch("./json/gameplay.json")
     localStorage.setItem('diceRollOne','0');
     localStorage.setItem('diceRollTwo','0');
 
+    playerOneP = document.querySelector('#playerOne');
+    playerOneP.innerHTML = '<p>' + localStorage.playerOneName;
+
+    playerTwoP = document.querySelector('#playerTwo');
+    playerTwoP.innerHTML = '<p>' + localStorage.playerTwoName;
+
     gameMusic();
+    diceSoundForGamePlay();
 
 //------------------------------------------------ Draw Players ------------------------------------------------------
 
@@ -71,6 +78,7 @@ fetch("./json/gameplay.json")
       p1LuckyTile12();
       p1LuckyTile16();
       p1TrapTile25();
+      p1TrapTile28();
       };
     };
 
@@ -91,6 +99,7 @@ fetch("./json/gameplay.json")
       p2LuckyTile12();
       p2LuckyTile16();
       p2TrapTile25();
+      p2TrapTile28();
       };
     };
     
@@ -100,6 +109,8 @@ fetch("./json/gameplay.json")
     function diceRollOne(){
       
       var myDice = document.querySelector("#diceOne");
+      var myDiceTwo = document.querySelector("#diceTwo");
+
         sides = 6;
         random = Math.floor(Math.random() * this.sides) + 1;
 
@@ -110,14 +121,23 @@ fetch("./json/gameplay.json")
         localStorage.p1 = Number(localStorage.p1)+random;
         myDice.style.pointerEvents = 'auto';
 
+        myDiceTwo.innerHTML = '<p>' + 'Player 1' + '<h1>' + 'Roll!';
+
         movePlayerOne(random);
         hideDice();
       };
 
+      function zero() {
+        setTimeout(function () {
+            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            showRollOne();
+        }, 300)
+      }
+
       function one() {
         setTimeout(function () {
             myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '2';
-            showRollOne();
+            zero();
         }, 300)
       }
 
@@ -176,6 +196,7 @@ fetch("./json/gameplay.json")
 
     function diceRollTwo(){
       var myDice = document.querySelector("#diceTwo");
+      var myDiceOne = document.querySelector("#diceOne");
       sides = 6;
       random = Math.floor(Math.random() * this.sides) + 1;
       
@@ -185,6 +206,8 @@ fetch("./json/gameplay.json")
 
         localStorage.p2 = Number(localStorage.p2)+random;
         myDice.style.pointerEvents = 'auto';
+
+        myDiceOne.innerHTML = '<p>' + 'Player 1' + '<h1>' + 'Roll!';
 
         movePlayerTwo(random);
         hideDice();
@@ -252,12 +275,12 @@ fetch("./json/gameplay.json")
 
     
     var diceOne = document.querySelector("#diceOne");
-    diceOne.addEventListener('click', function(){
+      diceOne.addEventListener('click', function(){
       diceRollOne();
     });
 
     var diceTwo = document.querySelector("#diceTwo");
-    diceTwo.addEventListener('click', function(){
+      diceTwo.addEventListener('click', function(){
       diceRollTwo();
     });
 
@@ -402,6 +425,34 @@ fetch("./json/gameplay.json")
         characterTwoImage.src = jsonResult.characters.player2.url[0];
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[20]-90,y[20]-100,150,150);
+        };
+      };
+    };
+
+    function p1TrapTile28(){
+      if (localStorage.p1 == 27){
+        alert("Oh no! You met a dragon and fled! Move to tile 22!");
+        localStorage.p1 = 21;
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        var characterOneImage = new Image();
+        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[22]-90,y[22]-100,150,150);
+        };
+      };
+    };
+
+    function p2TrapTile28(){
+      if (localStorage.p2 == 27){
+        alert("Oh no! You met a dragon and fled! Move to tile 22!");
+        localStorage.p2 = 21;
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        var characterTwoImage = new Image();
+        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[22]-90,y[22]-100,150,150);
         };
       };
     };

@@ -16,21 +16,25 @@
   </header>
 
   <main class="fadeIn">
+    <div class="settings">
+      <h1 id="play" style="display: none;">Play</h1>
+      <h1 id="mute">Mute</h1>
+    </div>
     <div class="characterSelection">
       <h1>Select a character</h1>
       <div class="character1">
         <h2>Player 1</h2>
         <div class="characterPicture1"></div>
-        <div class="nameplate"><input class="nameInput" type="text" placeholder="Your name" for="name"></div>
+        <div class="nameplate"><input id="playerOneInput" class="nameInput" type="text" placeholder="Your name" for="name" value="Player1"></div>
         <div class="arrowLeft"></div>
         <div class="selectButton"></div>
         <div class="arrowRight"></div>
       </div>
-      <a href="gameplay.html"><div class="startGame"></div></a>
+      <a href="gameplay.html" id="startGame"><div class="startGame"></div></a>
       <div class="character2">
         <h2>Player 2</h2>
         <div class="characterPicture2"></div>
-        <div class="nameplate"><input class="nameInput" placeholder="Your name"></div>
+        <div class="nameplate"><input id="playerTwoInput" class="nameInput" type="text" placeholder="Your name" for="name" value="Player2"></div>
         <div class="arrowLeft"></div>
         <div class="selectButton"></div>
         <div class="arrowRight"></div>
@@ -43,9 +47,9 @@
     <p>All rights reserved</p>
   </footer>
 
+  <script src="javascript/music.js" async></script>
   <script src="javascript/globalscripts.js" async></script>
   <script src="javascript/character.js" async></script>
-  <script src="javascript/music.js" async></script>
 </body>
 
 </html>

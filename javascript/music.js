@@ -30,16 +30,18 @@ var playMusic = document.querySelector("#play");
 
 /*---------- Dice sound ------------------------------------------------------*/
 
-function diceSound(){
-    diceAudio.play();
-}
+function diceSoundForGamePlay(){
+    function diceSound(){
+        diceAudio.play();
+    }
 
-var playDiceSound = document.querySelector("#diceOne");
-    playDiceSound.addEventListener('click', function(){
+    var playDiceSound = document.querySelector("#diceOne");
+        playDiceSound.addEventListener('click', function(){
+            diceSound();
+        });
+
+    var playDiceSound2 = document.querySelector("#diceTwo");
+        playDiceSound2.addEventListener('click', function(){
         diceSound();
     });
-
-var playDiceSound2 = document.querySelector("#diceTwo");
-    playDiceSound2.addEventListener('click', function(){
-    diceSound();
-});
+}

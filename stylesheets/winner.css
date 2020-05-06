@@ -2,7 +2,13 @@ main a{
     text-decoration: none;
 }
 
-.winnerText{
+main a h1:hover{
+    font-size: 70px;
+    transition-duration: 0.4s;
+    margin-top: 40px;
+}
+
+.winnerText, .winnerText2{
     margin-top: 50px;
     font-family: luckiestguy;
     font-size: 50px;
@@ -35,7 +41,7 @@ main a{
 
 .winnerBox{
     margin: 0px auto;
-    padding-top: 150px;
+    padding-top: 60px;
     width: 540px;
     height: 570px;
     background-image: url("../media/background/winnertrophy-01.svg");
@@ -49,8 +55,8 @@ main a{
 
 .winnerPicture{
     margin: 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     background-image: url("../media/character/character-01.svg");
     background-repeat: no-repeat;
 	background-position: center;

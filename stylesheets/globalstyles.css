@@ -21,6 +21,13 @@ body{
     margin: 0 auto;
 }
 
+/*<><><><> Global Fonts <><><><><><><><><><><><><><><><><><><><><>*/
+
+@font-face {
+    font-family: luckiestguy;
+    src: url(../media/fonts/luckiestguy.ttf);
+}
+
 /*<><><><> Global Styling <><><><><><><><><><><><><><><><><><><><>*/
 
 html{

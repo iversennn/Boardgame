@@ -15,10 +15,10 @@ fetch("./json/gameplay.json")
     localStorage.setItem('diceRollTwo','0');
 
     playerOneP = document.querySelector('#playerOne');
-    playerOneP.innerHTML = '<p>' + localStorage.playerOneName;
+    playerOneP.innerHTML = localStorage.playerOneName;
 
     playerTwoP = document.querySelector('#playerTwo');
-    playerTwoP.innerHTML = '<p>' + localStorage.playerTwoName;
+    playerTwoP.innerHTML = localStorage.playerTwoName;
 
     gameMusic();
     diceSoundForGamePlay();
@@ -138,13 +138,13 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         random = Math.floor(Math.random() * this.sides) + 1;
 
       function showRollOne(){
-        myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + random;
+        myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + random;
         localStorage.setItem('diceRollOne',random);
 
         localStorage.p1 = Number(localStorage.p1)+random;
         myDice.style.pointerEvents = 'auto';
 
-        myDiceTwo.innerHTML = '<p>' + 'Player 1' + '<h1>' + 'Roll!';
+        myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + 'Roll!';
 
         movePlayerOne(random);
         hideDice();
@@ -152,63 +152,63 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
       function zero() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '3';
             showRollOne();
         }, 300)
       }
 
       function one() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '2';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '2';
             zero();
         }, 300)
       }
 
       function two() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '5';
             one();
         }, 300)
       }
 
       function three() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '4';
             two();
         }, 300)
       }
 
       function four() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '6';
             three();
         }, 300)
       }
 
       function five() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '3';
             four();
         }, 300)
       }
 
       function six() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '1';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '1';
             five();
         }, 300)
       }
 
       function seven() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '4';
             six();
         }, 300)
       }
 
       function eight() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + '6';
             seven();
         }, 300)
       }
@@ -224,13 +224,13 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       random = Math.floor(Math.random() * this.sides) + 1;
       
       function showRollTwo(){
-        myDice.innerHTML = '<p>' + 'Player 2' + '<h1>' + random;
+        myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + random;
         localStorage.setItem('diceRollTwo',random);
 
         localStorage.p2 = Number(localStorage.p2)+random;
         myDice.style.pointerEvents = 'auto';
 
-        myDiceOne.innerHTML = '<p>' + 'Player 1' + '<h1>' + 'Roll!';
+        myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + 'Roll!';
 
         movePlayerTwo(random);
         hideDice();
@@ -238,56 +238,56 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
       function one() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '2';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '2';
             showRollTwo();
         }, 300)
       }
 
       function two() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '5';
             one();
         }, 300)
       }
 
       function three() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '4';
             two();
         }, 300)
       }
 
       function four() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '6';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '6';
             three();
         }, 300)
       }
 
       function five() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '3';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '3';
             four();
         }, 300)
       }
 
       function six() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '5';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '5';
             five();
         }, 300)
       }
 
       function seven() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '1';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '1';
             six();
         }, 300)
       }
 
       function eight() {
         setTimeout(function () {
-            myDice.innerHTML = '<p>' + 'Player 1' + '<h1>' + '4';
+            myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + '4';
             seven();
         }, 300)
       }

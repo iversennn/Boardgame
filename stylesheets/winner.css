@@ -1,0 +1,61 @@
+main a{
+    text-decoration: none;
+}
+
+.winnerText{
+    margin-top: 50px;
+    font-family: luckiestguy;
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes blink {
+    0% { text-shadow: 0 0 30px rgb(255, 179, 0); }
+    50% { text-shadow: none; }
+    100% { text-shadow: 0 0 30px rgb(255, 179, 0); }
+}
+
+@-webkit-keyframes blink {
+    0% { text-shadow: 0 0 30px rgb(255, 179, 0); }
+    50% { text-shadow: 0 0 0; }
+    100% { text-shadow: 0 0 30px rgb(255, 179, 0); }
+}
+
+.blinkingTextShadow{
+    -webkit-animation: blink 3.0s linear infinite;
+    -moz-animation: blink 3.0s linear infinite;
+    -ms-animation: blink 3.0s linear infinite;
+    -o-animation: blink 3.0s linear infinite;
+    animation: blink 3.0s linear infinite;
+}
+
+.winnerBox{
+    margin: 0px auto;
+    padding-top: 150px;
+    width: 540px;
+    height: 570px;
+    background-image: url("../media/background/winnertrophy-01.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}
+
+.winnerPicture{
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    background-image: url("../media/character/character-01.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}

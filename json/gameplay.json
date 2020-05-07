@@ -236,18 +236,28 @@
     ],
     "characters":{
         "player1" : {
-            "name" : ["Happy", "Jingles", "Booboo", "Popsy"],
+            "name" : ["Happy", "Jingles", "Booboo", "Popsy",
+                    "Cornflake", "Nanners", "Casey", "Raffles"],
             "url" : ["url('media/character/character-01.svg')",
                     "url('media/character/character-02.svg')",
                     "url('media/character/character-03.svg')",
-                    "url('media/character/character-04.svg')"]
+                    "url('media/character/character-04.svg')",
+                    "url('media/character/character-09.svg')",
+                    "url('media/character/character-10.svg')",
+                    "url('media/character/character-11.svg')",
+                    "url('media/character/character-12.svg')"]
         },
         "player2" : {
-            "name" : ["Gogo", "Dimdim", "Pickles", "Nappy"],
+            "name" : ["Gogo", "Dimdim", "Pickles", "Nappy",
+                    "Koko", "Pancake", "Luna", "Ditso"],
             "url" : ["url('media/character/character-05.svg')",
                     "url('media/character/character-06.svg')",
                     "url('media/character/character-07.svg')",
-                    "url('media/character/character-08.svg')"]
+                    "url('media/character/character-08.svg')",
+                    "url('media/character/character-13.svg')",
+                    "url('media/character/character-14.svg')",
+                    "url('media/character/character-15.svg')",
+                    "url('media/character/character-16.svg')"]
         }
     }
 }

@@ -77,7 +77,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       var characterTwoImage = new Image();
       characterTwoImage.src = localStorage.p2Picture;
       characterTwoImage.onload = function() {
-      ctx.drawImage(characterTwoImage,x[1+Number(localStorage.p2)]-90,y[1+Number(localStorage.p2)]-100,150,150);
+      ctx.drawImage(characterTwoImage,x[1+Number(localStorage.p2)]-60,y[1+Number(localStorage.p2)]-100,150,150);
       };
     };
 
@@ -112,7 +112,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       var characterTwoImage = new Image();
       characterTwoImage.src = localStorage.p2Picture;
       characterTwoImage.onload = function() {
-      ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-90,y[0+1+playerTwoPlacement]-100,150,150);
+      ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-60,y[0+1+playerTwoPlacement]-100,150,150);
       
       showPlayerOne();
       ifPlayerTwoWin();
@@ -368,7 +368,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         var characterTwoImage = new Image();
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
-        ctx.drawImage(characterTwoImage,x[2]-90,y[2]-100,150,150);
+        ctx.drawImage(characterTwoImage,x[2]-60,y[2]-100,150,150);
         };
       };
     };
@@ -396,7 +396,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         var characterTwoImage = new Image();
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
-        ctx.drawImage(characterTwoImage,x[21]-90,y[21]-100,150,150);
+        ctx.drawImage(characterTwoImage,x[21]-60,y[21]-100,150,150);
         };
       };
     };
@@ -424,7 +424,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         var characterTwoImage = new Image();
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
-        ctx.drawImage(characterTwoImage,x[15]-90,y[15]-100,150,150);
+        ctx.drawImage(characterTwoImage,x[15]-60,y[15]-100,150,150);
         };
       };
     };
@@ -452,7 +452,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         var characterTwoImage = new Image();
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
-        ctx.drawImage(characterTwoImage,x[20]-90,y[20]-100,150,150);
+        ctx.drawImage(characterTwoImage,x[20]-60,y[20]-100,150,150);
         };
       };
     };
@@ -480,7 +480,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         var characterTwoImage = new Image();
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
-        ctx.drawImage(characterTwoImage,x[22]-90,y[22]-100,150,150);
+        ctx.drawImage(characterTwoImage,x[22]-60,y[22]-100,150,150);
         };
       };
     };

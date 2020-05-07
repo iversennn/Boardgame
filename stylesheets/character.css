@@ -26,6 +26,7 @@
 
 .characterPicture1{
     margin: 0 auto;
+    margin-right: 115px;
     width: 200px;
     height: 200px;
     background-repeat: no-repeat;
@@ -38,6 +39,7 @@
 
 .characterPicture2{
     margin: 0 auto;
+    margin-left: 115px;
     width: 200px;
     height: 200px;
     background-repeat: no-repeat;

@@ -1,5 +1,3 @@
-gameMusic();
-
 var startButton = document.querySelector("#startGame");
 startButton.addEventListener('click', function startGame(){
     var nameOne = document.querySelector('#playerOneInput');

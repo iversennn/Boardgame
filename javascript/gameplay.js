@@ -20,7 +20,6 @@ fetch("./json/gameplay.json")
     playerTwoP = document.querySelector('#playerTwo');
     playerTwoP.innerHTML = localStorage.playerTwoName;
 
-    gameMusic();
     diceSoundForGamePlay();
 
 //------------------------------------------------ Test Area ---------------------------------------------------------
@@ -87,7 +86,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
     function movePlayerOne(){
       var playerOnePlacement = Number(localStorage.p1);
 
-      //ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterOneImage = new Image();
       characterOneImage.src = jsonResult.characters.player1.url[0];
@@ -108,7 +107,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
     function movePlayerTwo(){
       var playerTwoPlacement = Number(localStorage.p2);
 
-      //ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterTwoImage = new Image();
       characterTwoImage.src = jsonResult.characters.player2.url[0];
@@ -320,6 +319,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         
         myDiceOne.classList.add('diceShadow');
         myDiceTwo.classList.remove('diceShadow');
+
+        myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + 'Roll!';
+        myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + localStorage.diceRollTwo;
       }
     }
 
@@ -334,6 +336,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         myDiceOne.classList.remove('diceShadow');
         myDiceTwo.classList.add('diceShadow');
+
+        myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + localStorage.diceRollOne;
+        myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + 'Roll!';
       }
     }
 

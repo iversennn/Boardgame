@@ -80,8 +80,17 @@
     color: rgb(119, 77, 23);
 }
 
+.random{
+    margin: 0 auto;
+    padding-top: 10px;
+    font-size: 20px;
+    line-height: 0.8;
+    color: rgb(82, 69, 0);
+    width: 100px;
+}
+
 .arrowLeft{
-    margin: 20px 10px;
+    margin: -20px 10px;
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -100,7 +109,7 @@
 }
 
 .arrowRight{
-    margin: 20px 10px;
+    margin: -20px 10px;
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -115,7 +124,7 @@
 }
 
 .selectButton{
-    margin: 0px auto;
+    margin: -40px auto;
     display: inline-block;
     width: 100px;
     height: 100px;

@@ -38,12 +38,20 @@ fetch("./json/gameplay.json")
             p1i++;
             p1Picture.style.backgroundImage = p1.url[p1i];
             localStorage.p1Picture = p1.url[p1i];
+        } else {
+            p1i = 0;
+            p1Picture.style.backgroundImage = p1.url[p1i];
+            localStorage.p1Picture = p1.url[p1i];
         }
     });
 
     p1prevButton.addEventListener('click', function(){
         if (p1i > 0){
             p1i--;
+            p1Picture.style.backgroundImage = p1.url[p1i];
+            localStorage.p1Picture = p1.url[p1i];
+        } else {
+            p1i = p1.url.length-1;
             p1Picture.style.backgroundImage = p1.url[p1i];
             localStorage.p1Picture = p1.url[p1i];
         }
@@ -74,6 +82,10 @@ fetch("./json/gameplay.json")
             p2i++;
             p2Picture.style.backgroundImage = p2.url[p2i];
             localStorage.p2Picture = p2.url[p2i];
+        } else {
+            p2i = 0;
+            p2Picture.style.backgroundImage = p2.url[p2i];
+            localStorage.p2Picture = p2.url[p2i];
         }
     });
 
@@ -81,6 +93,10 @@ fetch("./json/gameplay.json")
         if (p2i > 0){
             p2i--;
             p2Picture.style.backgroundImage = p2.url[p2i]; 
+            localStorage.p2Picture = p2.url[p2i];
+        } else {
+            p2i = p2.url.length-1;
+            p2Picture.style.backgroundImage = p2.url[p2i];
             localStorage.p2Picture = p2.url[p2i];
         }
     });

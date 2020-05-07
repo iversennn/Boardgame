@@ -3,7 +3,9 @@ var diceAudio = new Audio('./media/music/dice.wav');
 var kidsCheerAudio = new Audio('./media/music/kids_cheering.mp3');
 var clappingAudio = new Audio('./media/music/clapping.mp3');
 
-
+if (localStorage.getItem('sound') === null){
+    localStorage.setItem('sound','unMute')
+}
 
 /*---------- Mute/Play game music ------------------------------------------------------*/
 function gameMusic(){

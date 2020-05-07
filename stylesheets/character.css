@@ -28,7 +28,6 @@
     margin: 0 auto;
     width: 200px;
     height: 200px;
-    background-image: url("../media/character/character-01.svg");
     background-repeat: no-repeat;
 	background-position: center;
     -webkit-background-size: cover;
@@ -41,7 +40,6 @@
     margin: 0 auto;
     width: 200px;
     height: 200px;
-    background-image: url("../media/character/character-05.svg");
     background-repeat: no-repeat;
 	background-position: center;
     -webkit-background-size: cover;

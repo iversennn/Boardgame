@@ -236,18 +236,18 @@
     ],
     "characters":{
         "player1" : {
-            "name" : ["happy", "Pappy", "Kappy", "Mappy"],
-            "url" : ["./media/character/character-01.svg",
-                    "./media/character/character-02.svg",
-                    "./media/character/character-03.svg",
-                    "./media/character/character-04.svg"]
+            "name" : ["Happy", "Jingles", "Booboo", "Popsy"],
+            "url" : ["url('media/character/character-01.svg')",
+                    "url('media/character/character-02.svg')",
+                    "url('media/character/character-03.svg')",
+                    "url('media/character/character-04.svg')"]
         },
         "player2" : {
-            "name" : ["Lappy", "Sappy", "Fappy", "Nappy"],
-            "url" : ["./media/character/character-05.svg",
-                    "./media/character/character-06.svg",
-                    "./media/character/character-07.svg",
-                    "./media/character/character-08.svg"]
+            "name" : ["Gogo", "Dimdim", "Pickles", "Nappy"],
+            "url" : ["url('media/character/character-05.svg')",
+                    "url('media/character/character-06.svg')",
+                    "url('media/character/character-07.svg')",
+                    "url('media/character/character-08.svg')"]
         }
     }
 }

@@ -24,7 +24,7 @@ fetch("./json/gameplay.json")
 
 //------------------------------------------------ Test Area ---------------------------------------------------------
 /*var testImage = new Image();
-testImage.src = jsonResult.characters.player1.url[0];
+testImage.src = localStorage.p1Picture;
 
 var xx = jsonResult.coordinatesArrayX[0]-90;
 var yy = jsonResult.coordinatesArrayY[0]-100;
@@ -49,7 +49,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function drawPlayerOne(){
       var characterOneImage = new Image();
-      characterOneImage.src = jsonResult.characters.player1.url[0];
+      characterOneImage.src = localStorage.p1Picture;
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[0]-90,y[0]-100,150,150);
       };
@@ -58,7 +58,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function drawPlayerTwo(){
       var characterTwoImage = new Image();
-      characterTwoImage.src = jsonResult.characters.player2.url[0];
+      characterTwoImage.src = localStorage.p2Picture;
       characterTwoImage.onload = function() {
       ctx.drawImage(characterTwoImage,x[1]-90,y[1]-100,150,150);
       };
@@ -67,7 +67,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function showPlayerOne(){
       var characterOneImage = new Image();
-      characterOneImage.src = jsonResult.characters.player1.url[0];
+      characterOneImage.src = localStorage.p1Picture;
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[1+Number(localStorage.p1)]-90,y[1+Number(localStorage.p1)]-100,150,150);
       };
@@ -75,7 +75,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function showPlayerTwo(){
       var characterTwoImage = new Image();
-      characterTwoImage.src = jsonResult.characters.player2.url[0];
+      characterTwoImage.src = localStorage.p2Picture;
       characterTwoImage.onload = function() {
       ctx.drawImage(characterTwoImage,x[1+Number(localStorage.p2)]-90,y[1+Number(localStorage.p2)]-100,150,150);
       };
@@ -89,7 +89,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterOneImage = new Image();
-      characterOneImage.src = jsonResult.characters.player1.url[0];
+      characterOneImage.src = localStorage.p1Picture;
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);
 
@@ -110,7 +110,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
 
       var characterTwoImage = new Image();
-      characterTwoImage.src = jsonResult.characters.player2.url[0];
+      characterTwoImage.src = localStorage.p2Picture;
       characterTwoImage.onload = function() {
       ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-90,y[0+1+playerTwoPlacement]-100,150,150);
       
@@ -352,7 +352,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterOneImage = new Image();
-        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[2]-90,y[2]-100,150,150);
         };
@@ -366,7 +366,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterTwoImage = new Image();
-        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[2]-90,y[2]-100,150,150);
         };
@@ -380,7 +380,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterOneImage = new Image();
-        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[21]-90,y[21]-100,150,150);
         };
@@ -394,7 +394,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterTwoImage = new Image();
-        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[21]-90,y[21]-100,150,150);
         };
@@ -408,7 +408,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterOneImage = new Image();
-        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[15]-90,y[15]-100,150,150);
         };
@@ -422,7 +422,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterTwoImage = new Image();
-        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[15]-90,y[15]-100,150,150);
         };
@@ -436,7 +436,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterOneImage = new Image();
-        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[20]-90,y[20]-100,150,150);
         };
@@ -450,7 +450,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterTwoImage = new Image();
-        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[20]-90,y[20]-100,150,150);
         };
@@ -464,7 +464,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterOneImage = new Image();
-        characterOneImage.src = jsonResult.characters.player1.url[0];
+        characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[22]-90,y[22]-100,150,150);
         };
@@ -478,7 +478,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         var characterTwoImage = new Image();
-        characterTwoImage.src = jsonResult.characters.player2.url[0];
+        characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[22]-90,y[22]-100,150,150);
         };
@@ -524,4 +524,10 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
     }
 
   })
+});
+
+//------------------------------------------------ Warning ---------------------------------------------------------
+
+window.addEventListener('beforeunload', (event) => {
+  event.returnValue = `If you leave the page gamedata will be lost!`;
 });

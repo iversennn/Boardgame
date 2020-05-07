@@ -83,6 +83,7 @@ header{
     right: 50px;
     cursor: pointer;
     border-radius: 50%;
+    background-color: rgb(255, 185, 73, 0.7);
 }
 
 .settings:hover{
@@ -91,7 +92,6 @@ header{
     bottom: 20px;
     right: 40px;
     transition-duration: 0.3s;
-    background-color: rgb(255, 185, 73, 0.7);
 }
 
 #play{

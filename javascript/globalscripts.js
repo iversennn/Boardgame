@@ -17,3 +17,13 @@ document.getElementById('xyLink').blur();
 return false;
 }
 document.onmouseup=getXYPosition;*/
+
+var helpConatinerButton = document.querySelector("#helpBtn");
+helpConatinerButton.addEventListener('click', function(){
+    var helpContainer = document.querySelector('#helpContainer');
+    if (helpContainer.style.display == 'none'){
+        helpContainer.style.display = 'block';
+    } else {
+        helpContainer.style.display = 'none';
+    }
+});

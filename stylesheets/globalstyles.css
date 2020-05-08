@@ -74,6 +74,23 @@ header{
 }
 
 /*---------- Main ----------------------------------------------------*/
+/* Help Container */
+
+.helpContainer{
+    position: fixed;
+    top: 40px;
+    left: 20%;
+    width: 60%;
+    height: 900px;
+    background-image: url("../media/background/helpbackground-01.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+    background-size: contain;
+}
+
 /* Help Button */
 .helpBtn{
     width: 100px;

@@ -2,6 +2,8 @@ var gameAudio = new Audio('./media/music/tavernNew.mp3');
 var diceAudio = new Audio('./media/music/dice.wav');
 var kidsCheerAudio = new Audio('./media/music/kids_cheering.mp3');
 var clappingAudio = new Audio('./media/music/clapping.mp3');
+var evilAudio = new Audio('./media/music/evillaugh.mp3');
+var dragonAudio = new Audio('./media/music/dragon.mp3');
 
 if (localStorage.getItem('sound') === null){
     localStorage.setItem('sound','unMute')
@@ -62,9 +64,21 @@ function diceSoundForGamePlay(){
     });
 }
 
-/*---------- Dice sound ------------------------------------------------------*/
+/*---------- Kids cheering sound ------------------------------------------------------*/
 
 function kidsCheering(){
     kidsCheerAudio.play();
     clappingAudio.play();
+};
+
+/*---------- Evil laugh sound ------------------------------------------------------*/
+
+function evilLaugh(){
+    evilAudio.play();
+};
+
+/*---------- Dragon sound ------------------------------------------------------*/
+
+function dragonRoar(){
+    dragonAudio.play();
 };

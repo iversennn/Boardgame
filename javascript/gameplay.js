@@ -324,6 +324,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + 'Roll!';
         myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + localStorage.diceRollTwo;
+        kidsCheering();
       }
     }
 
@@ -341,6 +342,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
         myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + localStorage.diceRollOne;
         myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + 'Roll!';
+        kidsCheering();
       }
     }
 
@@ -358,6 +360,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[2]-90,y[2]-100,150,150);
+        evilLaugh();
         };
       };
     };
@@ -373,6 +376,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[2]-60,y[2]-100,150,150);
+        evilLaugh();
         };
       };
     };
@@ -388,6 +392,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[21]-90,y[21]-100,150,150);
+        evilLaugh();
         };
       };
     };
@@ -403,6 +408,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[21]-60,y[21]-100,150,150);
+        evilLaugh();
         };
       };
     };
@@ -418,6 +424,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[15]-90,y[15]-100,150,150);
+        kidsCheering();
         };
       };
     };
@@ -433,6 +440,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[15]-60,y[15]-100,150,150);
+        kidsCheering();
         };
       };
     };
@@ -448,6 +456,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[20]-90,y[20]-100,150,150);
+        kidsCheering();
         };
       };
     };
@@ -463,6 +472,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[20]-60,y[20]-100,150,150);
+        kidsCheering();
         };
       };
     };
@@ -478,6 +488,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterOneImage.src = localStorage.p1Picture;
         characterOneImage.onload = function() {
         ctx.drawImage(characterOneImage,x[22]-90,y[22]-100,150,150);
+        dragonRoar();
         };
       };
     };
@@ -493,6 +504,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         characterTwoImage.src = localStorage.p2Picture;
         characterTwoImage.onload = function() {
         ctx.drawImage(characterTwoImage,x[22]-60,y[22]-100,150,150);
+        dragonRoar();
         };
       };
     };
@@ -539,7 +551,27 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 });
 
 //------------------------------------------------ Warning ---------------------------------------------------------
-
 window.addEventListener('beforeunload', (event) => {
-  event.returnValue = `If you leave the page gamedata will be lost!`;
+  if (localStorage.p1 < 28 && localStorage.p2 < 28){
+    event.returnValue = `If you leave the page gamedata will be lost!`;
+  } else {
+    return;
+  }   
 });
+
+/*window.addEventListener('beforeunload', (event) => {
+  if (localStorage.p1 < 28){
+    event.returnValue = `If you leave the page gamedata will be lost!`;
+  } else {
+    return;
+  }   
+});*/
+
+/*window.addEventListener('beforeunload', (event) => {
+  let testVariable = localStorage.p1 < 28 && localStorage.p2 < 28;
+  if (testVariable === true){
+    event.returnValue = `If you leave the page gamedata will be lost!`;
+  } else {
+    return;
+  }   
+});*/

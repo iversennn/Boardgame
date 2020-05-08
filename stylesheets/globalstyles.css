@@ -74,6 +74,35 @@ header{
 }
 
 /*---------- Main ----------------------------------------------------*/
+/* Help Button */
+.helpBtn{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 150px;
+    right: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(255, 185, 73, 0.7);
+    transition-duration: 0.2s;
+    background-image: url("../media/buttons/question.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}
+
+.helpBtn:hover{
+    width: 120px;
+    height: 120px;
+    bottom: 140px;
+    right: 40px;
+    transition-duration: 0.3s;
+}
+
+
 /* Mute Button */
 .settings{
     width: 100px;
@@ -84,6 +113,7 @@ header{
     cursor: pointer;
     border-radius: 50%;
     background-color: rgb(255, 185, 73, 0.7);
+    transition-duration: 0.2s;
 }
 
 .settings:hover{
@@ -168,3 +198,43 @@ footer p{
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+/*---------- Wiggle effect ----------------------------------------------------*/
+
+.wiggle {
+    animation: rotation 2s infinite linear;
+  }
+  
+  @keyframes rotation {
+    25% {
+        transform: rotate(4deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+  }
+
+  .wiggle2 {
+    animation: rotation2 2s infinite linear;
+  }
+  
+  @keyframes rotation2 {
+    25% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(4deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+  }

@@ -16,11 +16,19 @@
   </header>
 
   <main class="fadeIn">
-    <h1 class="winnerText blinkingTextShadow">CONGRATULATIONS!</h1>
-    <div class="winnerBox">
-      <div class="winnerPicture"></div>
+    <h1 id="winnerText" class="winnerText blinkingTextShadow">CONGRATULATIONS!</h1>
+    <div class="winnerBox wiggle">
+      <div id="winnerPic" class="winnerPicture"></div>
+      <div class="winnerName">
+        <p id="winnerName"></p>
+      </div>
     </div>
-    <a href="gameplay.html"><h1 class="winnerText2">WANT A REMATCH?</h1></a>
+    <div class="rematchBox">
+      <a href="gameplay.html" class="rematchBtn">
+        <h1 class="winnerText2">WANT A REMATCH?</h1>
+      </a>
+    </div>
+    <div id="helpBtn" class="helpBtn"></div>
     <div class="settings">
       <div id="play" style="display: none;"></div>
       <div id="mute"><div>

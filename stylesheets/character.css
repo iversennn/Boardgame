@@ -1,8 +1,18 @@
 /*---------- Main ----------------------------------------------------*/
 
 .characterSelection{
-    margin: 0 auto;
+    margin: 60px auto;
     width: 1200px;
+}
+
+.characterSelection h1{
+    font-family: luckiestguy;
+    font-size: 70px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(49, 49, 49);
+    background: -webkit-linear-gradient(#eee, rgb(224, 138, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .character1, .character2{
@@ -21,7 +31,15 @@
 }
 
 .character1 h2, .character2 h2{
+    margin: 0;
     margin-top: 50px;
+    font-family: luckiestguy;
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(49, 49, 49);
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .characterPicture1{

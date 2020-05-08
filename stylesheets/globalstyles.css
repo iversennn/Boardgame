@@ -89,6 +89,7 @@ header{
 	-moz-background-size: contain;
 	-o-background-size: contain;
     background-size: contain;
+    z-index: 10;
 }
 
 /* Help Button */

@@ -10,7 +10,9 @@ fetch("./json/gameplay.json")
     var x = jsonResult.coordinatesArrayX;
     var y = jsonResult.coordinatesArrayY;
     localStorage.setItem('p1','0');
+    localStorage.setItem('p1Old','0');
     localStorage.setItem('p2','0');
+    localStorage.setItem('p2Old','0');
     localStorage.setItem('diceRollOne','0');
     localStorage.setItem('diceRollTwo','0');
 
@@ -22,28 +24,56 @@ fetch("./json/gameplay.json")
 
     diceSoundForGamePlay();
 
+    var gameplayInfoText = document.querySelector('#gameplayInfoText');
+
 //------------------------------------------------ Test Area ---------------------------------------------------------
-/*var testImage = new Image();
-testImage.src = localStorage.p1Picture;
 
-var xx = jsonResult.coordinatesArrayX[0]-90;
-var yy = jsonResult.coordinatesArrayY[0]-100;
+/*let n = 40;
+let frame = 0;
+let startX = 0;
+let startY = 0;
+let endX = 900;
+let endY = 350;
+let incrementX = (endX - startX) / n;
+let incrementY = (endY - startY) / n;
 
-var xxEnd = jsonResult.coordinatesArrayX[2]-90;
-var yyEnd = jsonResult.coordinatesArrayY[2]-100;
+function animateObject() {
+    if (frame < n) {
+    startX += incrementX;
+    startY += incrementY;
 
-    setInterval(function() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      if (xx < xxEnd) {
-        ctx.drawImage(testImage,xx,yy,150,150);
-        xx++;
-        yy++;
-      } else {
-        xx = jsonResult.coordinatesArrayX[0]-90;
-        yy = jsonResult.coordinatesArrayY[0]-100;
-      }
-    }, 6);*/
+    var characterOneImage = new Image();
+    characterOneImage.src = '../boardgame/media/character/character-01.svg';
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(characterOneImage, startX, startY, 50, 50);
+
+    frame++;
+
+    window.requestAnimationFrame(animateObject);
+    }
+}
+
+//window.requestAnimationFrame(animateObject);
+
+var testImage = new Image();
+testImage.src = '../boardgame/media/character/character-01.svg';
+
+setInterval(function() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    startX += incrementX;
+    startY += incrementY;
+
+    if (frame < n) {
+    ctx.drawImage(testImage,startX,startY,150,150);
+    frame++;
+    } else {
+    startX = 0;
+    startY = 0;
+    frame = 0;
+    }
+}, 20);*/
 
 //------------------------------------------------ Draw Players ------------------------------------------------------
 
@@ -81,20 +111,86 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       };
     };
 
+//------------------------------------------------ Animate Movement --------------------------------------------------
+function p1AnimatedMovement(){
+  var playerOnePlacement = Number(localStorage.p1);
+  var playerOneOldPlacement = Number(localStorage.p1Old);
+  let n = 40;
+  let frame = 0;
+  let startX = x[playerOneOldPlacement]-90;
+  let startY = y[playerOneOldPlacement]-100;
+  let endX = x[0+1+playerOnePlacement]-90;
+  let endY = y[0+1+playerOnePlacement]-100;
+  let incrementX = (endX - startX) / n;
+  let incrementY = (endY - startY) / n;
+
+  function animateObject() {
+      if (frame < n) {
+      startX += incrementX;
+      startY += incrementY;
+
+      var characterOneImage = new Image();
+      characterOneImage.src = localStorage.p1Picture;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(characterOneImage, startX, startY, 150, 150);
+
+      frame++;
+
+      
+
+      window.requestAnimationFrame(animateObject);
+      }
+      showPlayerTwo();
+  }
+  window.requestAnimationFrame(animateObject);
+}
+
+function p2AnimatedMovement(){
+  var playerTwoPlacement = Number(localStorage.p2);
+  var playerTwoOldPlacement = Number(localStorage.p2Old);
+  let n = 40;
+  let frame = 0;
+  let startX = x[playerTwoOldPlacement]-60;
+  let startY = y[playerTwoOldPlacement]-100;
+  let endX = x[0+1+playerTwoPlacement]-60;
+  let endY = y[0+1+playerTwoPlacement]-100;
+  let incrementX = (endX - startX) / n;
+  let incrementY = (endY - startY) / n;
+
+  function animateObject() {
+      if (frame < n) {
+      startX += incrementX;
+      startY += incrementY;
+
+      var characterTwoImage = new Image();
+      characterTwoImage.src = localStorage.p2Picture;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(characterTwoImage, startX, startY, 150, 150);
+
+      frame++;
+
+      window.requestAnimationFrame(animateObject);
+      }
+      showPlayerOne();
+  }
+  window.requestAnimationFrame(animateObject);
+}
+
 //------------------------------------------------ Move Players ------------------------------------------------------
 
     function movePlayerOne(){
       var playerOnePlacement = Number(localStorage.p1);
 
       ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
-
-      showPlayerTwo();
+      p1AnimatedMovement();
 
       var characterOneImage = new Image();
       characterOneImage.src = localStorage.p1Picture;
       characterOneImage.onload = function() {
       ctx.drawImage(characterOneImage,x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);
-
+      
       ifPlayerOneWin();
       p1TrapTile6();
       p1LuckyTile12();
@@ -109,8 +205,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       var playerTwoPlacement = Number(localStorage.p2);
 
       ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
-
-      showPlayerOne();
+      p2AnimatedMovement()
 
       var characterTwoImage = new Image();
       characterTwoImage.src = localStorage.p2Picture;
@@ -142,6 +237,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         myDice.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + random;
         localStorage.setItem('diceRollOne',random);
 
+        localStorage.p1Old = Number(localStorage.p1)+1;
         localStorage.p1 = Number(localStorage.p1)+random;
         myDice.style.pointerEvents = 'auto';
 
@@ -228,6 +324,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
         myDice.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + random;
         localStorage.setItem('diceRollTwo',random);
 
+        localStorage.p2Old = Number(localStorage.p2)+1;
         localStorage.p2 = Number(localStorage.p2)+random;
         myDice.style.pointerEvents = 'auto';
 
@@ -301,11 +398,13 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
     var diceOne = document.querySelector("#diceOne");
       diceOne.addEventListener('click', function(){
       diceRollOne();
+      gameplayInfoText.innerHTML = '';
     });
 
     var diceTwo = document.querySelector("#diceTwo");
       diceTwo.addEventListener('click', function(){
       diceRollTwo();
+      gameplayInfoText.innerHTML = '';
     });
 
 //------------------------------------------------ If dice Roll = 6 ------------------------------------------------------
@@ -315,7 +414,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       var myDiceTwo = document.querySelector('#diceTwo');
 
       if (localStorage.diceRollOne == 6){
-        alert('Player one rolled a 6 and gets another turn!')
+        gameplayInfoText.innerHTML = 'Player one rolled a 6 and gets another turn!'
         myDiceOne.style.pointerEvents = 'auto';
         myDiceTwo.style.pointerEvents = 'none';
         
@@ -333,7 +432,7 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
       var myDiceTwo = document.querySelector('#diceTwo');
 
       if (localStorage.diceRollTwo == 6){
-        alert('Player two rolled a 6 and gets another turn!')
+        gameplayInfoText.innerHTML = 'Player two rolled a 6 and gets another turn!'
         myDiceOne.style.pointerEvents = 'none';
         myDiceTwo.style.pointerEvents = 'auto';
 
@@ -351,8 +450,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p1TrapTile6(){
       if (localStorage.p1 == 5){
-        alert("Oh no! you hit tile 6 :( move back to tile 2!");
+        gameplayInfoText.innerHTML = "Oh no! you hit tile 6 :( move back to tile 2!"
         localStorage.p1 = 1;
+        p1AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerTwo();
@@ -367,8 +467,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p2TrapTile6(){
       if (localStorage.p2 == 5){
-        alert("Oh no! you hit tile 6 :( move back to tile 2!");
+        gameplayInfoText.innerHTML = "Oh no! you hit tile 6 :( move back to tile 2!"
         localStorage.p2 = 1;
+        p2AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerOne();
@@ -383,8 +484,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p1TrapTile25(){
       if (localStorage.p1 == 24){
-        alert("Oh no! you hit tile 25 :( move back to tile 21!");
+        gameplayInfoText.innerHTML = "Oh no! you hit tile 25 :( move back to tile 21!"
         localStorage.p1 = 20;
+        p1AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerTwo();
@@ -399,8 +501,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p2TrapTile25(){
       if (localStorage.p2 == 24){
-        alert("Oh no! you hit tile 25 :( move back to tile 21!");
+        gameplayInfoText.innerHTML = "Oh no! you hit tile 25 :( move back to tile 21!"
         localStorage.p2 = 20;
+        p2AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerOne();
@@ -415,8 +518,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p1LuckyTile12(){
       if (localStorage.p1 == 11){
-        alert("Yeii, you hit tile 12! Move to tile 15!");
+        gameplayInfoText.innerHTML = "Yeii, you hit tile 12! Move to tile 15!"
         localStorage.p1 = 14;
+        p1AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerTwo();
@@ -431,8 +535,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p2LuckyTile12(){
       if (localStorage.p2 == 11){
-        alert("Yeii, you hit tile 12! Move to tile 15!");
+        gameplayInfoText.innerHTML = "Yeii, you hit tile 12! Move to tile 15!"
         localStorage.p2 = 14;
+        p2AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerOne();
@@ -447,8 +552,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p1LuckyTile16(){
       if (localStorage.p1 == 15){
-        alert("Yeii, you hit tile 16! Move to tile 20!");
+        gameplayInfoText.innerHTML = "Yeii, you hit tile 16! Move to tile 20!"
         localStorage.p1 = 19;
+        p1AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerTwo();
@@ -463,8 +569,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p2LuckyTile16(){
       if (localStorage.p2 == 15){
-        alert("Yeii, you hit tile 16! Move to tile 20!");
+        gameplayInfoText.innerHTML = "Yeii, you hit tile 16! Move to tile 20!"
         localStorage.p2 = 19;
+        p2AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerOne();
@@ -479,8 +586,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p1TrapTile28(){
       if (localStorage.p1 == 27){
-        alert("Oh no! You met a dragon and fled! Move to tile 22!");
+        gameplayInfoText.innerHTML = "Oh no! You met a dragon and fled! Move to tile 22!"
         localStorage.p1 = 21;
+        p1AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerTwo();
@@ -495,8 +603,9 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function p2TrapTile28(){
       if (localStorage.p2 == 27){
-        alert("Oh no! You met a dragon and fled! Move to tile 22!");
+        gameplayInfoText.innerHTML = "Oh no! You met a dragon and fled! Move to tile 22!"
         localStorage.p2 = 21;
+        p2AnimatedMovement();
 
         ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
         showPlayerOne();
@@ -535,15 +644,15 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 
     function ifPlayerOneWin(){
       if (localStorage.p1 > 28){
-        alert("Player one got home safely!");
         window.location = './winner.html';
+        gameplayInfoText.innerHTML = playerOneName + "arrived safely to the castle!";
       }
     }
 
     function ifPlayerTwoWin(){
       if (localStorage.p2 > 28){
-        alert("Player two got home safely!");
         window.location = './winner.html';
+        gameplayInfoText.innerHTML = playerTwoName + "arrived safely to the castle!";
       }
     }
 
@@ -551,13 +660,13 @@ var yyEnd = jsonResult.coordinatesArrayY[2]-100;
 });
 
 //------------------------------------------------ Warning ---------------------------------------------------------
-window.addEventListener('beforeunload', (event) => {
+/*window.addEventListener('beforeunload', (event) => {
   if (localStorage.p1 < 28 && localStorage.p2 < 28){
     event.returnValue = `If you leave the page gamedata will be lost!`;
   } else {
     return;
   }   
-});
+});*/
 
 /*window.addEventListener('beforeunload', (event) => {
   if (localStorage.p1 < 28){

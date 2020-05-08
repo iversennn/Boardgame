@@ -6,6 +6,22 @@
     width: 400px;
 }
 
+
+#gameplayInfoText{
+    position: fixed;
+    width: 60%;
+    left: 20%;
+    padding: 0;
+    margin: 0;
+    font-family: luckiestguy;
+    font-size: 40px;
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: rgb(49, 49, 49);
+    background: -webkit-linear-gradient(#eee, rgb(224, 138, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 canvas{
     margin: 50px auto;
     background-image: url("../media/background/boardmap1400x800complete.png");

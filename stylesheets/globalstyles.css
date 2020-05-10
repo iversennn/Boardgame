@@ -99,6 +99,10 @@ header{
     margin-top: 250px;
 }
 
+.helpTextBox p{
+    font-size: 26px;
+}
+
 /* Help Button */
 .helpBtn{
     width: 100px;

@@ -27,3 +27,20 @@ helpConatinerButton.addEventListener('click', function(){
         helpContainer.style.display = 'none';
     }
 });
+
+/*---------- Text inside help menu ------------------------------------------------------*/
+var helpText = document.querySelector('#helpText');
+var textOne = document.createElement('p');
+var textTwo = document.createElement('p');
+var textThree = document.createElement('p');
+var textFour = document.createElement('p');
+
+textOne.innerHTML = 'The rules are simple! The first oponent to reach the castle wins!'
+textTwo.innerHTML = 'On your journey you may encounter traps who will set you back some tiles or you could be lucky and land on a tile that sends you forward!'
+textThree.innerHTML ='One of the tiles hides a mighty dragon, try not to land on this one!'
+textFour.innerHTML ='If you are extra lucky and roll a six on the dice you get another turn!'
+
+helpText.appendChild(textOne);
+helpText.appendChild(textTwo);
+helpText.appendChild(textThree);
+helpText.appendChild(textFour);

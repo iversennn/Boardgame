@@ -63,6 +63,11 @@ gameMusic();
 /*---------- Master volume ------------------------------------------------------*/
 var volumeUp = document.querySelector("#volumeUp");
     volumeUp.addEventListener('click', function(){
+        if (muteMusic.style.display === 'none'){
+            localStorage.volume = localStorage.volumeOld;
+            setMasterVolume();
+            gameMusic();
+        }
         if (localStorage.volume < 1){
             var setVolume = Number(localStorage.volume) + 0.05;
             localStorage.volume = setVolume.toFixed(2);
@@ -70,6 +75,7 @@ var volumeUp = document.querySelector("#volumeUp");
         } if ( localStorage.volume > 0){
             playMusic.style.display = 'none';
             muteMusic.style.display = 'block';
+            setMasterVolume();
         }
     });
 

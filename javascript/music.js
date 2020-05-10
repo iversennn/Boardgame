@@ -4,6 +4,7 @@ var kidsCheerAudio = new Audio('./media/music/kids_cheering.mp3');
 var clappingAudio = new Audio('./media/music/clapping.mp3');
 var evilAudio = new Audio('./media/music/evillaugh.mp3');
 var dragonAudio = new Audio('./media/music/dragon.mp3');
+gameAudio.loop=true;
 
 if (localStorage.getItem('sound') === null){
     localStorage.setItem('sound','unMute')
@@ -12,6 +13,11 @@ if (localStorage.getItem('sound') === null){
 if (localStorage.getItem('volume') === null){
     localStorage.setItem('volume','0.5')
 };
+
+if (localStorage.getItem('volumeOld') === null){
+    localStorage.setItem('volumeOld','0.5')
+};
+localStorage.volumeOld = localStorage.volume;
 
 /*---------- Mute/Play game music ------------------------------------------------------*/
 function gameMusic(){
@@ -28,6 +34,8 @@ var muteMusic = document.querySelector("#mute");
       muteMusic.style.display = 'none';
       playMusic.style.display = 'block';
       localStorage.setItem('sound','mute')
+      localStorage.volumeOld = localStorage.volume;
+      localStorage.volume = '0';
       gameMusicPause();
     });
 
@@ -36,19 +44,22 @@ var playMusic = document.querySelector("#play");
       playMusic.style.display = 'none';
       muteMusic.style.display = 'block';
       localStorage.setItem('sound','unMute')
+      localStorage.volume = localStorage.volumeOld;
       gameMusic();
+      setMasterVolume();
     });
 
 if (localStorage.sound === 'mute'){
     muteMusic.style.display = 'none';
     playMusic.style.display = 'block';
-    gameMusicPause();
+    //gameMusicPause();
 } else if (localStorage.sound === 'unMute'){
     playMusic.style.display = 'none';
     muteMusic.style.display = 'block';
-    gameMusic();
+    //gameMusic();
 }
 
+gameMusic();
 /*---------- Master volume ------------------------------------------------------*/
 var volumeUp = document.querySelector("#volumeUp");
     volumeUp.addEventListener('click', function(){
@@ -120,4 +131,3 @@ function evilLaugh(){
 function dragonRoar(){
     dragonAudio.play();
 };
-

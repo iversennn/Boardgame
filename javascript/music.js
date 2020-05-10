@@ -13,35 +13,6 @@ if (localStorage.getItem('volume') === null){
     localStorage.setItem('volume','0.5')
 };
 
-/*---------- Master volume ------------------------------------------------------*/
-var volumeUp = document.querySelector("#volumeUp");
-    volumeUp.addEventListener('click', function(){
-        if (localStorage.volume < 1){
-            var setVolume = Number(localStorage.volume) + 0.05;
-            localStorage.volume = setVolume.toFixed(2);
-            setMasterVolume();
-        }
-    });
-
-var volumeDown = document.querySelector("#volumeDown");
-    volumeDown.addEventListener('click', function(){
-        if (localStorage.volume > 0.00){
-            var setVolume = Number(localStorage.volume) - 0.05;
-            localStorage.volume = setVolume.toFixed(2);  
-            setMasterVolume();
-        }
-    });
-
-function setMasterVolume(){
-    gameAudio.volume = localStorage.volume;
-    diceAudio.volume = localStorage.volume;
-    kidsCheerAudio.volume = localStorage.volume;
-    clappingAudio.volume = localStorage.volume;
-    evilAudio.volume = localStorage.volume;
-    dragonAudio.volume = localStorage.volume;
-}
-setMasterVolume();
-
 /*---------- Mute/Play game music ------------------------------------------------------*/
 function gameMusic(){
     gameAudio.loop=true;
@@ -77,6 +48,41 @@ if (localStorage.sound === 'mute'){
     muteMusic.style.display = 'block';
     gameMusic();
 }
+
+/*---------- Master volume ------------------------------------------------------*/
+var volumeUp = document.querySelector("#volumeUp");
+    volumeUp.addEventListener('click', function(){
+        if (localStorage.volume < 1){
+            var setVolume = Number(localStorage.volume) + 0.05;
+            localStorage.volume = setVolume.toFixed(2);
+            setMasterVolume();
+        } if ( localStorage.volume > 0){
+            playMusic.style.display = 'none';
+            muteMusic.style.display = 'block';
+        }
+    });
+
+var volumeDown = document.querySelector("#volumeDown");
+    volumeDown.addEventListener('click', function(){
+        if (localStorage.volume > 0.00){
+            var setVolume = Number(localStorage.volume) - 0.05;
+            localStorage.volume = setVolume.toFixed(2);  
+            setMasterVolume();
+        } if ( localStorage.volume == 0){
+            muteMusic.style.display = 'none';
+            playMusic.style.display = 'block';
+        }
+    });
+
+function setMasterVolume(){
+    gameAudio.volume = localStorage.volume;
+    diceAudio.volume = localStorage.volume;
+    kidsCheerAudio.volume = localStorage.volume;
+    clappingAudio.volume = localStorage.volume;
+    evilAudio.volume = localStorage.volume;
+    dragonAudio.volume = localStorage.volume;
+}
+setMasterVolume();
 
 /*---------- Dice sound ------------------------------------------------------*/
 

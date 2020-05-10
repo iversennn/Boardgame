@@ -7,11 +7,43 @@ var dragonAudio = new Audio('./media/music/dragon.mp3');
 
 if (localStorage.getItem('sound') === null){
     localStorage.setItem('sound','unMute')
+};
+
+if (localStorage.getItem('volume') === null){
+    localStorage.setItem('volume','0.5')
+};
+
+/*---------- Master volume ------------------------------------------------------*/
+var volumeUp = document.querySelector("#volumeUp");
+    volumeUp.addEventListener('click', function(){
+        if (localStorage.volume < 1){
+            var setVolume = Number(localStorage.volume) + 0.05;
+            localStorage.volume = setVolume.toFixed(2);
+            setMasterVolume();
+        }
+    });
+
+var volumeDown = document.querySelector("#volumeDown");
+    volumeDown.addEventListener('click', function(){
+        if (localStorage.volume > 0.00){
+            var setVolume = Number(localStorage.volume) - 0.05;
+            localStorage.volume = setVolume.toFixed(2);  
+            setMasterVolume();
+        }
+    });
+
+function setMasterVolume(){
+    gameAudio.volume = localStorage.volume;
+    diceAudio.volume = localStorage.volume;
+    kidsCheerAudio.volume = localStorage.volume;
+    clappingAudio.volume = localStorage.volume;
+    evilAudio.volume = localStorage.volume;
+    dragonAudio.volume = localStorage.volume;
 }
+setMasterVolume();
 
 /*---------- Mute/Play game music ------------------------------------------------------*/
 function gameMusic(){
-    gameAudio.volume=0.3;
     gameAudio.loop=true;
     gameAudio.play();
 }
@@ -60,7 +92,7 @@ function diceSoundForGamePlay(){
 
     var playDiceSound2 = document.querySelector("#diceTwo");
         playDiceSound2.addEventListener('click', function(){
-        diceSound();
+            diceSound();
     });
 }
 
@@ -82,3 +114,4 @@ function evilLaugh(){
 function dragonRoar(){
     dragonAudio.play();
 };
+

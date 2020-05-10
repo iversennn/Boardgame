@@ -5,6 +5,8 @@ fetch("./json/gameplay.json")
     boardCanvas.width = 1450;
     boardCanvas.height = 800;
     var ctx = boardCanvas.getContext("2d");
+    //console.log(jsonResult);
+
     var x = jsonResult.coordinatesArrayX;
     var y = jsonResult.coordinatesArrayY;
     localStorage.setItem('p1','0');
@@ -46,35 +48,34 @@ fetch("./json/gameplay.json")
     };
     drawPlayerTwo();
 
-//------------------------------------------------ Animate Movement on each tile --------------------------------------------------
+    /*function //showPlayerOne(){
+      var characterOneImage = new Image();
+      characterOneImage.src = localStorage.p1Picture;
+      characterOneImage.onload = function() {
+      ctx.drawImage(characterOneImage,x[1+Number(localStorage.p1)]-90,y[1+Number(localStorage.p1)]-100,150,150);
+      };
+    };
 
-/*var playerOnePlacement = Number(localStorage.p1);
-var playerOneOldPlacement = Number(localStorage.p1Old);
-var p1Dice = Number(localStorage.diceRollOne);
-
-  for (i=0; p1Dice > i; i++){
-    console.log(i+1);
-    var p1Dice = Number(localStorage.diceRollOne) - i;
-    
-  }*/
+    function //showPlayerTwo(){
+      var characterTwoImage = new Image();
+      characterTwoImage.src = localStorage.p2Picture;
+      characterTwoImage.onload = function() {
+      ctx.drawImage(characterTwoImage,x[1+Number(localStorage.p2)]-60,y[1+Number(localStorage.p2)]-100,150,150);
+      };
+    };*/
 
 //------------------------------------------------ Animate Movement --------------------------------------------------
 function p1AnimatedMovement(){
   var playerOnePlacement = Number(localStorage.p1);
   var playerOneOldPlacement = Number(localStorage.p1Old);
-  var n = 40;
-  var frame = 0;
-  if (playerOneOldPlacement == 1){
-    var startX = x[playerOneOldPlacement-1]-90;
-    var startY = y[playerOneOldPlacement-1]-100;
-  } else {
-    var startX = x[playerOneOldPlacement]-90;
-    var startY = y[playerOneOldPlacement]-100;
-  };
-  var endX = x[1+playerOnePlacement]-90;
-  var endY = y[1+playerOnePlacement]-100;
-  var incrementX = (endX - startX) / n;
-  var incrementY = (endY - startY) / n;
+  let n = 40;
+  let frame = 0;
+  let startX = x[playerOneOldPlacement]-90;
+  let startY = y[playerOneOldPlacement]-100;
+  let endX = x[0+1+playerOnePlacement]-90;
+  let endY = y[0+1+playerOnePlacement]-100;
+  let incrementX = (endX - startX) / n;
+  let incrementY = (endY - startY) / n;
 
   function animateObject() {
       if (frame < n) {
@@ -92,19 +93,13 @@ function p1AnimatedMovement(){
 
       frame++;
 
+      
+
       window.requestAnimationFrame(animateObject);
       }
-      if(frame === n-1){
-        p1Win();
-        p1TrapTile6();
-        p1LuckyTile12();
-        p1LuckyTile16();
-        p1TrapTile25();
-        p1TrapTile28();
-        p1AnotherTurn();
-      };
-    }
-    window.requestAnimationFrame(animateObject);
+      //showPlayerTwo();
+  }
+  window.requestAnimationFrame(animateObject);
 }
 
 function p2AnimatedMovement(){
@@ -137,18 +132,55 @@ function p2AnimatedMovement(){
 
       window.requestAnimationFrame(animateObject);
       }
-      if(frame === n-1){
-        p2Win();
-        p2TrapTile6();
-        p2LuckyTile12();
-        p2LuckyTile16();
-        p2TrapTile25();
-        p2TrapTile28();
-        p2AnotherTurn();
-      };
-    }
+      //showPlayerOne();
+  }
   window.requestAnimationFrame(animateObject);
 }
+
+//------------------------------------------------ Move Players ------------------------------------------------------
+
+    function movePlayerOne(){
+      /*var playerOnePlacement = Number(localStorage.p1);
+
+      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);*/
+      p1AnimatedMovement();
+
+      /*var characterOneImage = new Image();
+      characterOneImage.src = localStorage.p1Picture;
+      characterOneImage.onload = function() {
+      ctx.drawImage(characterOneImage,x[0+1+playerOnePlacement]-90,y[0+1+playerOnePlacement]-100,150,150);*/
+      
+      ifPlayerOneWin();
+      p1TrapTile6();
+      p1LuckyTile12();
+      p1LuckyTile16();
+      p1TrapTile25();
+      p1TrapTile28();
+      playerOneAnotherTurn();
+      //};
+    };
+
+    function movePlayerTwo(){
+      /*var playerTwoPlacement = Number(localStorage.p2);
+
+      ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);*/
+      p2AnimatedMovement()
+
+      /*var characterTwoImage = new Image();
+      characterTwoImage.src = localStorage.p2Picture;
+      characterTwoImage.onload = function() {
+      ctx.drawImage(characterTwoImage,x[0+1+playerTwoPlacement]-60,y[0+1+playerTwoPlacement]-100,150,150);*/
+      
+      ifPlayerTwoWin();
+      p2TrapTile6();
+      p2LuckyTile12();
+      p2LuckyTile16();
+      p2TrapTile25();
+      p2TrapTile28();
+      playerTwoAnotherTurn();
+      //};
+    };
+    
 
 //------------------------------------------------ Dice Roll ------------------------------------------------------
 
@@ -170,7 +202,7 @@ function p2AnimatedMovement(){
 
         myDiceTwo.innerHTML = '<p>' + localStorage.playerTwoName + '<h1>' + 'Roll!';
 
-        p1AnimatedMovement(); 
+        movePlayerOne(random);
         hideDice();
       };
 
@@ -257,7 +289,7 @@ function p2AnimatedMovement(){
 
         myDiceOne.innerHTML = '<p>' + localStorage.playerOneName + '<h1>' + 'Roll!';
 
-        p2AnimatedMovement();
+        movePlayerTwo(random);
         hideDice();
       }
 
@@ -336,7 +368,7 @@ function p2AnimatedMovement(){
 
 //------------------------------------------------ If dice Roll = 6 ------------------------------------------------------
 
-    function p1AnotherTurn(){
+    function playerOneAnotherTurn(){
       var myDiceOne = document.querySelector('#diceOne');
       var myDiceTwo = document.querySelector('#diceTwo');
 
@@ -354,7 +386,7 @@ function p2AnimatedMovement(){
       }
     }
 
-    function p2AnotherTurn(){
+    function playerTwoAnotherTurn(){
       var myDiceOne = document.querySelector('#diceOne');
       var myDiceTwo = document.querySelector('#diceTwo');
 
@@ -378,120 +410,170 @@ function p2AnimatedMovement(){
     function p1TrapTile6(){
       if (localStorage.p1 == 5){
         gameplayInfoText.innerHTML = "Oh no! you hit tile 6 :( move back to tile 2!"
-        localStorage.p1Old = 6;
         localStorage.p1 = 1;
-        evilLaugh();
         p1AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerTwo();
+        var characterOneImage = new Image();
+        characterOneImage.src = localStorage.p1Picture;
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[2]-90,y[2]-100,150,150);
+        evilLaugh();
+        };
       };
     };
 
     function p2TrapTile6(){
       if (localStorage.p2 == 5){
         gameplayInfoText.innerHTML = "Oh no! you hit tile 6 :( move back to tile 2!"
-        localStorage.p2Old = 6;
         localStorage.p2 = 1;
-        evilLaugh();
         p2AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerOne();
+        var characterTwoImage = new Image();
+        characterTwoImage.src = localStorage.p2Picture;
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[2]-60,y[2]-100,150,150);
+        evilLaugh();
+        };
       };
     };
 
     function p1TrapTile25(){
       if (localStorage.p1 == 24){
         gameplayInfoText.innerHTML = "Oh no! you hit tile 25 :( move back to tile 21!"
-        localStorage.p1Old = 25;
         localStorage.p1 = 20;
-        evilLaugh();
         p1AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerTwo();
+        var characterOneImage = new Image();
+        characterOneImage.src = localStorage.p1Picture;
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[21]-90,y[21]-100,150,150);
+        evilLaugh();
+        };
       };
     };
 
     function p2TrapTile25(){
       if (localStorage.p2 == 24){
         gameplayInfoText.innerHTML = "Oh no! you hit tile 25 :( move back to tile 21!"
-        localStorage.p2Old = 25;
         localStorage.p2 = 20;
-        evilLaugh();
         p2AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerOne();
+        var characterTwoImage = new Image();
+        characterTwoImage.src = localStorage.p2Picture;
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[21]-60,y[21]-100,150,150);
+        evilLaugh();
+        };
       };
     };
 
     function p1LuckyTile12(){
       if (localStorage.p1 == 11){
         gameplayInfoText.innerHTML = "Yeii, you hit tile 12! Move to tile 15!"
-        localStorage.p1Old = 12;
         localStorage.p1 = 14;
-        kidsCheering();
         p1AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerTwo();
+        var characterOneImage = new Image();
+        characterOneImage.src = localStorage.p1Picture;
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[15]-90,y[15]-100,150,150);
+        kidsCheering();
+        };
       };
     };
 
     function p2LuckyTile12(){
       if (localStorage.p2 == 11){
         gameplayInfoText.innerHTML = "Yeii, you hit tile 12! Move to tile 15!"
-        localStorage.p2Old = 12;
         localStorage.p2 = 14;
-        kidsCheering();
         p2AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerOne();
+        var characterTwoImage = new Image();
+        characterTwoImage.src = localStorage.p2Picture;
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[15]-60,y[15]-100,150,150);
+        kidsCheering();
+        };
       };
     };
 
     function p1LuckyTile16(){
       if (localStorage.p1 == 15){
         gameplayInfoText.innerHTML = "Yeii, you hit tile 16! Move to tile 20!"
-        localStorage.p1Old = 16;
         localStorage.p1 = 19;
-        kidsCheering();
         p1AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerTwo();
+        var characterOneImage = new Image();
+        characterOneImage.src = localStorage.p1Picture;
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[20]-90,y[20]-100,150,150);
+        kidsCheering();
+        };
       };
     };
 
     function p2LuckyTile16(){
       if (localStorage.p2 == 15){
         gameplayInfoText.innerHTML = "Yeii, you hit tile 16! Move to tile 20!"
-        localStorage.p2Old = 16;
         localStorage.p2 = 19;
-        kidsCheering();
         p2AnimatedMovement();
+
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerOne();
+        var characterTwoImage = new Image();
+        characterTwoImage.src = localStorage.p2Picture;
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[20]-60,y[20]-100,150,150);
+        kidsCheering();
+        };
       };
     };
 
     function p1TrapTile28(){
       if (localStorage.p1 == 27){
-        gameplayInfoText.innerHTML = localStorage.playerOneName + " met a dragon and fled to tile 22!"
-        localStorage.p1Old = 28;
+        gameplayInfoText.innerHTML = playerOneName + " met a dragon and fled! Move to tile 22!"
         localStorage.p1 = 21;
+        p1AnimatedMovement();
 
-        var showDragon = document.querySelector('#dragonBackground');
-        showDragon.style.display = 'block';
-
-        function dragon() {
-          setTimeout(function () {
-              showDragon.style.display = 'none';
-              p1AnimatedMovement();
-          }, 5000)
-        }
-        dragon();
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerTwo();
+        var characterOneImage = new Image();
+        characterOneImage.src = localStorage.p1Picture;
+        characterOneImage.onload = function() {
+        ctx.drawImage(characterOneImage,x[22]-90,y[22]-100,150,150);
         dragonRoar();
+        };
       };
     };
 
     function p2TrapTile28(){
       if (localStorage.p2 == 27){
-        gameplayInfoText.innerHTML = localStorage.playerTwoName + " met a dragon and fled to tile 22!"
-        localStorage.p2Old = 28;
+        gameplayInfoText.innerHTML = playerTwoName + " met a dragon and fled! Move to tile 22!"
         localStorage.p2 = 21;
-        
-        var showDragon = document.querySelector('#dragonBackground');
-        showDragon.style.display = 'block';
+        p2AnimatedMovement();
 
-        function dragon() {
-          setTimeout(function () {
-              showDragon.style.display = 'none';
-              p2AnimatedMovement();
-          }, 5000)
-        }
-        dragon();
+        ctx.clearRect(0,0,boardCanvas.width,boardCanvas.height);
+        //showPlayerOne();
+        var characterTwoImage = new Image();
+        characterTwoImage.src = localStorage.p2Picture;
+        characterTwoImage.onload = function() {
+        ctx.drawImage(characterTwoImage,x[22]-60,y[22]-100,150,150);
         dragonRoar();
+        };
       };
     };
 
@@ -519,14 +601,14 @@ function p2AnimatedMovement(){
 
 //------------------------------------------------ Winner ---------------------------------------------------------
 
-    function p1Win(){
+    function ifPlayerOneWin(){
       if (localStorage.p1 > 28){
         window.location = './winner.html';
         gameplayInfoText.innerHTML = playerOneName + "arrived safely to the castle!";
       }
     }
 
-    function p2Win(){
+    function ifPlayerTwoWin(){
       if (localStorage.p2 > 28){
         window.location = './winner.html';
         gameplayInfoText.innerHTML = playerTwoName + "arrived safely to the castle!";
@@ -537,10 +619,76 @@ function p2AnimatedMovement(){
 });
 
 //------------------------------------------------ Warning ---------------------------------------------------------
-window.addEventListener('beforeunload', (event) => {
+/*window.addEventListener('beforeunload', (event) => {
   if (localStorage.p1 < 28 && localStorage.p2 < 28){
     event.returnValue = `If you leave the page gamedata will be lost!`;
   } else {
     return;
   }   
-});
+});*/
+
+/*window.addEventListener('beforeunload', (event) => {
+  if (localStorage.p1 < 28){
+    event.returnValue = `If you leave the page gamedata will be lost!`;
+  } else {
+    return;
+  }   
+});*/
+
+/*window.addEventListener('beforeunload', (event) => {
+  let testVariable = localStorage.p1 < 28 && localStorage.p2 < 28;
+  if (testVariable === true){
+    event.returnValue = `If you leave the page gamedata will be lost!`;
+  } else {
+    return;
+  }   
+});*/
+
+//------------------------------------------------ Test Area ---------------------------------------------------------
+
+/*let n = 40;
+let frame = 0;
+let startX = 0;
+let startY = 0;
+let endX = 900;
+let endY = 350;
+let incrementX = (endX - startX) / n;
+let incrementY = (endY - startY) / n;
+
+function animateObject() {
+    if (frame < n) {
+    startX += incrementX;
+    startY += incrementY;
+
+    var characterOneImage = new Image();
+    characterOneImage.src = '../boardgame/media/character/character-01.svg';
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(characterOneImage, startX, startY, 50, 50);
+
+    frame++;
+
+    window.requestAnimationFrame(animateObject);
+    }
+}
+
+//window.requestAnimationFrame(animateObject);
+
+var testImage = new Image();
+testImage.src = '../boardgame/media/character/character-01.svg';
+
+setInterval(function() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    startX += incrementX;
+    startY += incrementY;
+
+    if (frame < n) {
+    ctx.drawImage(testImage,startX,startY,150,150);
+    frame++;
+    } else {
+    startX = 0;
+    startY = 0;
+    frame = 0;
+    }
+}, 20);*/

@@ -34,13 +34,19 @@ var textOne = document.createElement('p');
 var textTwo = document.createElement('p');
 var textThree = document.createElement('p');
 var textFour = document.createElement('p');
+var textFive = document.createElement('p');
+var textSix = document.createElement('p');
 
 textOne.innerHTML = 'The rules are simple! The first oponent to reach the castle wins!'
 textTwo.innerHTML = 'On your journey you may encounter traps who will set you back some tiles or you could be lucky and land on a tile that sends you forward!'
 textThree.innerHTML ='One of the tiles hides a mighty dragon, try not to land on this one!'
 textFour.innerHTML ='If you are extra lucky and roll a six on the dice you get another turn!'
+textFive.innerHTML ='Player 1 starts the turn, and both players start on tile 1!'
+textSix.innerHTML ='On the right side of the screen you find all the buttons, to roll a dice simply just press it!'
 
 helpText.appendChild(textOne);
 helpText.appendChild(textTwo);
 helpText.appendChild(textThree);
 helpText.appendChild(textFour);
+helpText.appendChild(textFive);
+helpText.appendChild(textSix);

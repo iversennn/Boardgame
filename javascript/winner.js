@@ -15,3 +15,4 @@ function congratzToWinner(){
 }
 congratzToWinner();
 kidsCheering();
+confetti.start();

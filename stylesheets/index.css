@@ -12,6 +12,26 @@
     display: none;
 }
 
+#loadIcon{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 260px;
+    background-image: url("../media/loadicon-01.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+
 /*---------- Header ----------------------------------------------------*/
 
 header{

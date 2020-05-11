@@ -71,6 +71,8 @@
 }
 
 canvas{
+    width: 1450px;
+    height: 800px;
     margin: 80px auto;
     background-image: url("../media/background/boardmap1400x800complete.png");
     background-repeat: no-repeat;

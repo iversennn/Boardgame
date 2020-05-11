@@ -13,6 +13,8 @@ function congratzToWinner(){
     myPicture.style.backgroundImage = 'url("./' + localStorage.p2Picture + '")';
     }
 }
-congratzToWinner();
-kidsCheering();
-confetti.start();
+setTimeout(function(){
+    congratzToWinner();
+    kidsCheering();
+    confetti.start();
+},100)

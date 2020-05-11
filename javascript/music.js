@@ -72,7 +72,8 @@ var volumeUp = document.querySelector("#volumeUp");
             var setVolume = Number(localStorage.volume) + 0.05;
             localStorage.volume = setVolume.toFixed(2);
             setMasterVolume();
-        } if ( localStorage.volume > 0){
+        } 
+        if ( localStorage.volume > 0){
             playMusic.style.display = 'none';
             muteMusic.style.display = 'block';
             setMasterVolume();
@@ -85,7 +86,8 @@ var volumeDown = document.querySelector("#volumeDown");
             var setVolume = Number(localStorage.volume) - 0.05;
             localStorage.volume = setVolume.toFixed(2);  
             setMasterVolume();
-        } if ( localStorage.volume == 0){
+        } 
+        if ( localStorage.volume == 0){
             muteMusic.style.display = 'none';
             playMusic.style.display = 'block';
         }

@@ -185,3 +185,210 @@
     border-radius: 50px;
     cursor: pointer;
 }
+
+@media all and (max-width: 1330px) {
+    /*---------- Main ----------------------------------------------------*/
+    .characterSelection{
+        margin: 0px auto;
+        margin-bottom: 40px;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .characterSelection h1{
+        width: 100%;
+        font-size: 5vw;
+        margin: 0;
+    }
+
+    .character1, .character2{
+        vertical-align: top;
+        margin: 0 0px;
+        display: inline-block;
+        width: 380px;
+        height: 600px;
+        background-image: url("../media/background/characterbackground-01.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .character1 h2, .character2 h2{
+        margin: 0;
+        margin-top: 50px;
+        font-family: luckiestguy;
+        font-size: 50px;
+        -webkit-text-stroke-width: 0.2px;
+        -webkit-text-stroke-color: rgb(49, 49, 49);
+        background: -webkit-linear-gradient(#eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .characterPicture1{
+        margin-left: 65px;
+        width: 200px;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .characterPicture2{
+        margin-left: 110px;
+        width: 200px;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .nameplate{
+        margin: 30px auto;
+        margin-bottom: 20px;
+        width: 200px;
+        height: 50px;
+        background-image: url("../media/nameplatebrown.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .nameplate input{
+        height: 50px;
+        width: 150px;
+        border-style: none;
+        background-color: rgba(0, 0, 0, 0);
+        color: gold;
+        font-size: 30px;
+        text-align: center; 
+    }
+
+    .nameplate input::placeholder{
+        color: rgb(119, 77, 23);
+    }
+
+    .nameplate input:-ms-input-placeholder{
+        color: rgb(119, 77, 23);
+    }
+
+    .random{
+        margin: 0 auto;
+        margin-bottom: 5px;
+        font-size: 20px;
+        line-height: 0.8;
+        color: rgb(82, 69, 0);
+        width: 100px;
+    }
+
+    .arrowLeft{
+        margin: -20px 10px;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        background-image: url("../media/buttons/buttonbrownleft.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .arrowLeft:hover, .arrowRight:hover, .selectButton:hover{
+        background-size: 110%;
+    }
+
+    .arrowRight{
+        margin: -20px 10px;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        background-image: url("../media/buttons/buttonbrownright.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .selectButton{
+        margin: -40px auto;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        background-image: url("../media/buttons/selectbrown4.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .startGame{
+        display: inline-block;
+        width: 80px;
+        height: 300px;
+        margin-top: 140px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-image: url("../media/buttons/startbuttonvertical.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        transition-duration: 0.3s;
+    }
+
+    .startGame:hover{
+        width: 120px;
+        height: 400px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 100px;
+        transition-duration: 0.5s;
+        background-color: rgb(255, 185, 73, 0.5);
+        box-shadow: 0px 0px 20px 20px rgb(255, 185, 73, 0.5);
+        border-radius: 50px;
+        cursor: pointer;
+    }
+}
+.hideDesktop{
+    display: none;
+}
+@media all and (max-width: 900px) {
+    .startGame{
+        display: none;
+    }
+    .hideDesktop{
+        display: block;
+        width: 100%;
+        height: 100px;
+        margin: 0px;
+        background-image: url("../media/buttons/startbuttonhorizontal-12.svg");
+        background-position: center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+}

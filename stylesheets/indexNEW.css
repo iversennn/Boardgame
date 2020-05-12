@@ -1,0 +1,159 @@
+/*---------- Loading screen ------------------------------------------------------*/
+#loadingScreen{
+    background-color: rgb(109, 221, 255);
+    z-index: 10;
+}
+
+#loadAssets{
+    display: none;
+}
+
+#loadIcon{
+    background-image: url("../media/loadicon-01.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+0% {transform: rotate(0deg);}
+100% {transform: rotate(360deg);}
+}
+
+/*---------- Header ----------------------------------------------------*/
+
+header{
+    padding-top: 80px;
+}
+
+.logoBox{
+    background-image: url("../media/logo-02.svg");
+}
+
+/*---------- Main ------------------------------------------------------*/
+
+.playContainer{
+    border-radius: 50%;
+    transition-duration: 0.3s;
+}
+
+.playContainer:hover{
+    transition-duration: 0.5s;
+    background-color: rgb(255, 185, 73, 0.5);
+    box-shadow: 0px 0px 50px 50px rgb(255, 185, 73, 0.5);
+    cursor: pointer;
+}
+
+.playContainerBackground{
+    background-image: url("../media/buttons/playButton2.svg");
+    background-repeat: no-repeat;
+	background-position: center;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+}
+
+.playContainerBackground:hover{
+    transition-duration: 0.5s;
+}
+
+/*<><><><>Phone/Small Tablet<><><><><><><><><><><><><><><><><><>*/
+@media all and (max-width: 800px) {
+
+    .logoBox{
+        width: 100%;
+        height: 100px;
+    }
+
+    /*---------- Loading screen ------------------------------------------------------*/
+    #loadingScreen{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+    }
+
+    #loadIcon{
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        margin-top: 260px;
+    }
+
+    /*---------- Main ------------------------------------------------------*/
+
+    .playContainer{
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .playContainer:hover{
+        width: 600px;
+        height: 600px;
+        margin-top: 0px;
+    }
+
+    .playContainerBackground{
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        margin-top: 50px;
+    }
+
+    .playContainerBackground:hover{
+        width: 600px;
+        height: 600px;
+        margin-top: 0px;
+    }
+}
+
+/*<><><><> Tablet/Desktop <><><><><><><><><><><><><><><><><><><><><><><><>*/
+@media all and (min-width: 801px) {
+   /*---------- Loading screen ------------------------------------------------------*/
+    #loadingScreen{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+    }
+
+    #loadIcon{
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        margin-top: 260px;
+    }
+
+    /*---------- Main ------------------------------------------------------*/
+
+    .playContainer{
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        margin-top: 50px;
+    }
+
+    .playContainer:hover{
+        width: 600px;
+        height: 600px;
+        margin-top: 0px;
+    }
+
+    .playContainerBackground{
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        margin-top: 50px;
+    }
+
+    .playContainerBackground:hover{
+        width: 600px;
+        height: 600px;
+        margin-top: 0px;
+    }
+}
+

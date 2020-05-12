@@ -93,3 +93,11 @@
         left: -400px;
     }
 }
+
+/*<><><><>Phone/Small Tablet<><><><><><><><><><><><><><><><><><>*/
+@media all and (max-width: 1000px) {
+    .cloud1, .cloud2, .cloud3, .cloud4{
+        display: none;
+    }
+}
+

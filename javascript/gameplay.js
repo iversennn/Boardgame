@@ -24,7 +24,16 @@ fetch("./json/gameplay.json")
 
     var gameplayInfoText = document.querySelector('#gameplayInfoText');
 
-
+//--------------------------------------- Check browser canvas support ---------------------------------------------
+function checkSupport(){
+  if(boardCanvas.getContext){
+    console.log('Canvas is supported!');
+    return;
+    } else {
+      alert('Your browser does not support HTML canvas please upgrade it');
+    }
+}
+checkSupport();
 
 //------------------------------------------------ Draw Players ------------------------------------------------------
 

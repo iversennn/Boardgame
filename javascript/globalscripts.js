@@ -28,6 +28,15 @@ helpConatinerButton.addEventListener('click', function(){
     }
 });
 
+var helpConatiner = document.querySelector("#helpContainer");
+helpConatiner.addEventListener('click', function(){
+    if (helpContainer.style.display == 'none'){
+        helpContainer.style.display = 'block';
+    } else {
+        helpContainer.style.display = 'none';
+    }
+});
+
 /*---------- Text inside help menu ------------------------------------------------------*/
 var helpText = document.querySelector('#helpText');
 var textOne = document.createElement('p');

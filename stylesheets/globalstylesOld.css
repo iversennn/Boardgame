@@ -64,6 +64,15 @@ header{
     background-size: cover;
 }
 
+.decorBorder{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background: yellow;
+}
+
 /*---------- Main ----------------------------------------------------*/
 /* Help Container */
 
@@ -280,9 +289,9 @@ footer p{
 
 .wiggle {
     animation: rotation 2s infinite linear;
-}
+  }
   
-@keyframes rotation {
+  @keyframes rotation {
     25% {
         transform: rotate(4deg);
     }
@@ -295,13 +304,13 @@ footer p{
     100% {
         transform: rotate(0deg);
     }
-}
+  }
 
-.wiggle2 {
+  .wiggle2 {
     animation: rotation2 2s infinite linear;
-}
+  }
   
-@keyframes rotation2 {
+  @keyframes rotation2 {
     25% {
         transform: rotate(-4deg);
     }
@@ -314,91 +323,4 @@ footer p{
     100% {
         transform: rotate(0deg);
     }
-}
-
-/*---------- Main ----------------------------------------------------*/
-/* Help Container responsive*/
-@media all and (max-width: 1259px) {
-    .helpContainer{
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100vh;
-        background-image: none;
-        background-color: rgba(255, 228, 185, 0.98);
-    }
-    
-    .helpTextBox{
-        margin: 0 auto;
-        width: 100%;
-        max-width: 540px;
-        height: 100%;
-        max-height: 460px;
-        margin-top: 50px;
-    }
-    
-    .helpTextBox p{
-        font-size: 22px;
-    }
-}
-
-@media all and (min-width: 1260px) and (max-width: 1800px) {
-    .helpContainer{
-        left: 10%;
-    }
-}
-
- @media all and (min-width: 1921px) {
-    .helpContainer{
-        width: 60%;
-        left: 20%;
-    }
-}
-
-/*---------- Main ----------------------------------------------------*/
-@media all and (max-width: 1330px) {
-    /* Responsive header */
-    header{
-        position: relative;
-        width: 100%;
-        padding-top: 0px;
-    }
-
-    .logoBox{
-        margin: 0 auto;
-        width: 100%;
-        height: 100px;
-        -webkit-background-size: contain;
-        -moz-background-size: contain;
-        -o-background-size: contain;
-        background-size: contain;
-    }
-
-    /* Responsive buttons */
-    .helpBtn, .helpBtn:hover, .settings, .settings:hover{
-        position: static;
-        display: inline-block;
-        width: 100px;
-        height: 100px;
-    }
-    #volumeUp, #volumeUp:hover, #volumeDown, #volumeDown:hover{
-        position: static;
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-    }
-}
-
-/*---------- Responsive Footer ----------------------------------------------------*/
-@media all and (max-width: 900px) {
-    footer{
-        position: static;
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    footer p{
-        display: inline-block;
-    }
-}
+  }

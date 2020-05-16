@@ -3,7 +3,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    outline: 1px solid red;
+    outline: 0px solid red;
     outline-offset: -1px;
 }
 
@@ -392,6 +392,10 @@ footer p{
 
 /*---------- Responsive Footer ----------------------------------------------------*/
 @media all and (max-width: 900px) {
+    html {
+        background-image: none;
+    }
+
     footer{
         position: static;
         width: 100%;

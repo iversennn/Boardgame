@@ -13,17 +13,19 @@
 }
 
 #loadIcon{
+    max-width: 100%;
     width: 500px;
-    height: 500px;
+    max-height: 500px;
+    height: 100%;
     margin: 0 auto;
     margin-top: 260px;
     background-image: url("../media/loadicon-01.svg");
     background-repeat: no-repeat;
 	background-position: center;
-    -webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+    background-size: contain;
     animation: rotate 2s infinite linear;
 }
 
@@ -87,6 +89,12 @@ header{
 
 
 @media all and (max-width: 860px) {
+    /* Responsive Loadicon */
+    #loadIcon{
+        margin: 0 auto;
+        margin-top: 20px;
+        height: 300px;
+    }
     /* Responsive header */
     header{
         padding-top: 0px;

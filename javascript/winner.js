@@ -15,6 +15,10 @@ function congratzToWinner(){
 }
 setTimeout(function(){
     congratzToWinner();
-    kidsCheering();
+    winnerSound();
     confetti.start();
-},100)
+    gameMusicPause();
+    setTimeout(function(){
+        gameMusic();
+    }, 5000);
+},100);

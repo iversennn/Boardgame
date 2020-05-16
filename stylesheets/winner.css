@@ -12,6 +12,7 @@ html{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition-duration: 0.3s;
+    text-transform: uppercase;
 }
 
 .winnerText2:hover{

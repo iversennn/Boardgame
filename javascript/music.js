@@ -4,6 +4,8 @@ var kidsCheerAudio = new Audio('./media/music/kids_cheering.mp3');
 var clappingAudio = new Audio('./media/music/clapping.mp3');
 var evilAudio = new Audio('./media/music/evillaugh.mp3');
 var dragonAudio = new Audio('./media/music/dragon.mp3');
+var tada = new Audio('./media/music/tada.mp3');
+var fanfare = new Audio('./media/music/fanfare.mp3');
 gameAudio.loop=true;
 
 if (localStorage.getItem('sound') === null){
@@ -138,4 +140,14 @@ function evilLaugh(){
 
 function dragonRoar(){
     dragonAudio.play();
+};
+
+/*---------- Winner sound ------------------------------------------------------*/
+
+function winnerSound(){
+    tada.play();
+    clappingAudio.play();
+    setTimeout(function(){
+        fanfare.play();
+    }, 1600);
 };

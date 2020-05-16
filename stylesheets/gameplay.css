@@ -12,6 +12,7 @@
     background: -webkit-linear-gradient(#eee, rgb(224, 138, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
 }
 
 #dragonBackground{

@@ -30,7 +30,7 @@ function checkSupport(){
     console.log('Canvas is supported!');
     return;
     } else {
-      alert('Your browser does not support HTML canvas please upgrade it');
+      alert('Your browser does not support HTML canvas, please upgrade it');
     }
 }
 checkSupport();
@@ -54,18 +54,6 @@ checkSupport();
       };
     };
     drawPlayerTwo();
-
-//------------------------------------------------ Animate Movement on each tile --------------------------------------------------
-
-/*var playerOnePlacement = Number(localStorage.p1);
-var playerOneOldPlacement = Number(localStorage.p1Old);
-var p1Dice = Number(localStorage.diceRollOne);
-
-  for (i=0; p1Dice > i; i++){
-    console.log(i+1);
-    var p1Dice = Number(localStorage.diceRollOne) - i;
-    
-  }*/
 
 //------------------------------------------------ Animate Movement --------------------------------------------------
 function p1AnimatedMovement(){
